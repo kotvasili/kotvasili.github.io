@@ -1,0 +1,21 @@
+@import '../../styles/_global.sass'
+.header
+  display: flex
+  flex-flow: row wrap
+  align-items: center
+  justify-content: center
+  gap: 10px
+  padding-top: 42px
+  width: 100%
+  @media screen and (max-width: 1025px)
+    margin-bottom: 3%
+  @media screen and (max-width: 600px)
+    flex-flow: column wrap
+    gap: 0
+  p
+    text-transform: uppercase
+    color: rgba(#fff, 0.5)
+    @include css-lock('font-size', 'px', 12, 24, 420, 1600)
+  svg
+    @include css-lock('width', 'px', 40, 66, 420, 1600)
+    @include css-lock('height', 'px', 40, 66, 420, 1600)

@@ -1,0 +1,62 @@
+@import '../styles/_global.sass'
+.content
+  position: relative
+  width: 100%
+  max-width: 1900px
+  margin: 0 auto
+  h1
+    font-weight: 600
+    @include css-lock('font-size', 'px', 40, 128, 420, 1600)
+    line-height: 102%
+    text-align: center
+    letter-spacing: -0.181618px
+    color: #FFFFFF
+    filter: var(--text-filter)
+    margin-top: 120px
+    width: 100%
+    max-width: 1488px
+    margin-left: auto
+    margin-right: auto
+  &> a
+    position: absolute
+    left: 60px
+    top: 0
+    transform: rotate(-4deg)
+    text-align: center
+    @media screen and (max-width: 600px)
+      left: 50%
+      transform: rotate(-4deg) translateX(-50%)
+      top: 10px
+      padding: 20px 12px
+  &> svg
+    position: absolute
+    right: 60px
+    top: 0
+    transform: rotate(15deg)
+    filter: drop-shadow(0px 0px 8.68034px #8773FF)
+    @media screen and (max-width: 900px)
+      display: none
+  &+svg
+    position: absolute
+    left: 0
+    right: 0
+    width: 100%
+    top: 40%
+    z-index: -1
+    pointer-events: none
+  &_main
+    width: 100%
+    max-width: 1488px
+    padding-left: 24px
+    padding-right: 24px
+    color: #fff
+    font-weight: 400
+    font-size: 20px
+    line-height: 114%
+    letter-spacing: 1px
+    gap: 30px
+    margin-top: 90px
+    display: flex
+    flex-flow: column nowrap
+    margin-left: auto
+    margin-right: auto

@@ -1,0 +1,188 @@
+@import '../../../styles/_global.sass'
+
+.story
+  display: grid
+  grid-template-rows: min-content
+  width: 100%
+  position: relative
+  //transform: scale(0.87)
+  padding: 0 20px
+  margin-top: 16px
+  cursor: pointer
+  @media screen and (max-width: 500px)
+    transform: none
+  @media (hover: hover) and (pointer: fine)
+    &:hover
+      .story_back
+        img
+          opacity: 0
+          transform: scale(1.04)
+      .story_front
+        opacity: 1
+        &:after
+          transform: none
+
+      .story_back
+        &:before
+          opacity: 0
+  @media (hover: none) and (pointer: coarse)
+    &_active
+      .story_back
+        img
+          opacity: 0
+          transform: scale(1.04)
+      .story_front
+        opacity: 1
+        &:after
+          transform: none
+
+      .story_back
+        &:before
+          opacity: 0
+  span
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 100%
+    font-weight: 500
+    font-size: 16px
+    line-height: 100%
+    text-align: center
+    color: rgba(255, 255, 255, 0.4)
+    margin-bottom: 6px
+  &_back, &_front
+    grid-area: 1 / 1
+    width: 100%
+    min-width: 0
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      transition: opacity .2s ease-in-out, transform .2s ease
+      pointer-events: none
+      border: 2.36737px solid rgba(255, 255, 255, 0.4)
+      border-radius: 10px
+      will-change: transform, opacity
+
+  &_back
+    position: relative
+
+    &:before
+      content: ''
+      position: absolute
+      z-index: -1
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      pointer-events: none
+      box-shadow: 0px 0px 200px rgba(118, 106, 205, 0.25)
+      transition: opacity .2s ease-in-out
+      will-change: opacity
+      @media screen and (max-width: 800px)
+        display: none
+  &_front
+    display: flex
+    padding: 2px
+    position: relative
+    z-index: 1
+    opacity: 0
+    transition: opacity .2s ease-in-out
+    will-change: opacity
+    &:after
+      content: ''
+      position: absolute
+      z-index: -1
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      pointer-events: none
+      border-radius: 160px
+      background: rgba(#000, 0.6)
+      transition: transform .3s ease
+      transform: scale(1.1)
+      filter: blur(34px)
+      will-change: transform, filter
+    p
+      margin: auto
+      font-weight: 700
+      @include css-lock('font-size', 'px', 14, 18, 420, 1600)
+      line-height: 140%
+      color: #FFFFFF
+      text-shadow: 0px 0px 8.68034px #FF00F5, 0px 0px 8.68034px #8773FF
+      text-align: center
+
+.grid_card
+  position: relative
+  display: flex
+  justify-content: center
+  z-index: 0
+  height: max-content
+  @media screen and (max-width: 500px)
+    align-items: center !important
+    justify-content: center !important
+  &:nth-child(1)
+    transform: rotate(-10.69deg)
+    justify-content: end
+    align-items: start
+  &:nth-child(2)
+    transform: rotate(-3.24deg)
+    justify-content: end
+    align-items: end
+  &:nth-child(3)
+    transform: rotate(6.16deg)
+    align-items: start
+    justify-content: start
+    @media screen and (min-width: 801px)
+      transform: rotate(6.16deg) translateY(-10%)
+  &:nth-child(4)
+    transform: rotate(-15.63deg)
+    align-items: start
+    justify-content: start
+  &:nth-child(5)
+    transform: rotate(7.76deg)
+    justify-content: end
+  &:nth-child(6)
+    transform: rotate(-17.77deg)
+    align-items: end
+  &:nth-child(7)
+    transform: rotate(3.25deg)
+    align-items: end
+  &:nth-child(8)
+    transform: rotate(-7.17deg)
+    align-items: start
+  &:nth-child(9)
+    transform: rotate(7.88deg)
+    align-items: start
+    justify-content: start
+    @media screen and (min-width: 801px)
+      transform: rotate(7.88deg) translateY(-10%)
+  &:nth-child(10)
+    transform: rotate(-15deg)
+    align-items: start
+    justify-content: end
+    @media screen and (min-width: 801px)
+      transform: rotate(-15deg) translateY(15%)
+  &:nth-child(11)
+    transform: rotate(4.97deg)
+    align-items: start
+  &:nth-child(12)
+    transform: rotate(-3.87deg)
+    align-items: end
+    @media screen and (min-width: 801px)
+      transform: rotate(-3.87deg) translateY(-20%)
+  &:nth-child(13)
+    transform: rotate(-15deg)
+    align-items: start
+    justify-content: end
+    @media screen and (min-width: 801px)
+      transform: rotate(-15deg) translateY(-15%)
+  &:nth-child(14)
+    transform: rotate(4.97deg)
+    align-items: start
+  &:nth-child(15)
+    transform: rotate(-3.87deg)
+    align-items: end
+    @media screen and (min-width: 801px)
+      transform: rotate(-3.87deg) translateY(25%)

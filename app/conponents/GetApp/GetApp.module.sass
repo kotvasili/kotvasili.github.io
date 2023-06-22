@@ -1,0 +1,93 @@
+.getapp
+  &_outer
+    margin-top: 415px
+    @media screen and (max-width: 1320px)
+      margin-top: 215px
+    @media screen and (max-width: 800px)
+      margin-top: 115px
+    & > div:first-child
+      margin-bottom: -190px
+      @media screen and (max-width: 1320px)
+        margin-bottom: 0
+        &> div
+          position: static
+          align-items: flex-start
+          svg
+            display: none
+      p
+        transform: rotate(-13.6deg)
+        & + svg
+          transform: none
+  &_wrapper
+    padding: 3% 28px
+    display: flex
+    flex-flow: column nowrap
+    align-items: center
+    justify-content: center
+    width: 100%
+
+  &_inner
+    gap: 64px
+    width: 100%
+    max-width: 784px
+    display: grid
+    grid-template-areas: 'qr text' 'qr links'
+    @media screen and (max-width: 800px)
+      grid-template-areas: 'text' 'links'
+    &_left
+      grid-area: qr
+      background: linear-gradient(152.27deg, #D2FF73 55.89%, #A0FF73 79.12%)
+      border-radius: 16px
+      overflow: hidden
+      aspect-ratio: 1 / 1
+      max-width: 338px
+      box-shadow: inset 0px 0px 12px #92B7EE
+      filter: drop-shadow(0px 0px 8.68034px rgba(255, 0, 245, 0.4)) drop-shadow(0px 0px 8.68034px rgba(135, 115, 255, 0.4)) drop-shadow(0px 0px 25px rgba(170, 255, 32, 0.25))
+      @media screen and (max-width: 800px)
+        display: none
+      img
+        mix-blend-mode: multiply
+        width: 100%
+        height: 100%
+    &_text
+      grid-area: text
+      gap: 28px
+      display: flex
+      flex-flow: column nowrap
+      p
+        font-weight: 600
+        font-size: 18px
+        line-height: 140%
+        color: rgba(255, 255, 255, 0.8)
+        max-width: 311px
+        text-align: center
+        margin: 0 auto
+      @media screen and (min-width: 801px)
+        *
+          text-align: left
+        p
+          margin: 0
+        span
+          margin-left: 0
+    &_links
+      display: flex
+      flex-flow: row wrap
+      row-gap: 16px
+      column-gap: 24px
+      align-items: flex-end
+      justify-content: center
+      @media screen and (max-width: 600px)
+        a
+          width: 100%
+    &_link
+      cursor: pointer
+      background: rgba(0, 0, 0, 0.64)
+      box-shadow: inset 0 0 12px #92B7EE
+      border-radius: 15px
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      padding: 12px 24px
+
+
+
