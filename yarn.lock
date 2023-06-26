@@ -2932,6 +2932,11 @@ internal-slot@^1.0.3, internal-slot@^1.0.4, internal-slot@^1.0.5:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+intersection-observer@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.12.2.tgz#4a45349cc0cd91916682b1f44c28d7ec737dc375"
+  integrity sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==
+
 is-arguments@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/is-arguments/-/is-arguments-1.1.1.tgz#15b3f88fda01f2a97fec84ca761a560f123efa9b"
@@ -3810,6 +3815,11 @@ react-hook-form@^7.45.0-next.1:
   version "7.45.0-next.1"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.45.0-next.1.tgz#ec9ca4ade908e80d8a8430707d4ce12af0f55ad6"
   integrity sha512-ksvvJm6c+rBl6XbXGj4GJhL073DRkIsDv0fvunaueeIC2ydp9YKozt8ofNEPimQ9XU3HOI+wuQBkXtYmVJCEpQ==
+
+react-intersection-observer@^9.5.1:
+  version "9.5.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.5.1.tgz#63a6d7c45f7251610ad2f5a5abb85204ee0926ac"
+  integrity sha512-YwcNF/4WsMAG1rLVDQHSbpdEW9vDaIl4QW88d+vqeXNUewFV4AJDQB14oHpAJ3rRCnKRmwu3nqfwwYe6wioNIg==
 
 react-is@^16.13.1:
   version "16.13.1"

@@ -4,6 +4,8 @@ import styles from './StoryGridItem.module.sass'
 import {CustomImage} from "@/app/conponents/CustomImage";
 import {useInView} from "framer-motion";
 import {useRef} from "react";
+import 'intersection-observer';
+
 export const StoryGridItem = (fields: IStoryCardFields) => {
     const ref = useRef(null)
     const isInView = useInView(ref, {
