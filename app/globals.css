@@ -96,7 +96,6 @@ dialog {
 .bubble {
   position: absolute;
   z-index: -3;
-  backdrop-filter: blur(10px);
   aspect-ratio: 0.98;
   will-change: transform;
   pointer-events: none;
@@ -234,4 +233,7 @@ body {
 }
 main {
   flex: 1;
+}
+img {
+  opacity: 0;
 }

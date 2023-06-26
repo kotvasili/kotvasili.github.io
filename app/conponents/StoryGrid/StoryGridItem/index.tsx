@@ -8,7 +8,7 @@ export const StoryGridItem = (fields: IStoryCardFields) => {
     const ref = useRef(null)
     const isInView = useInView(ref, {
         margin: "0px 50px 0px",
-        amount: 1
+        amount: 0.8
     })
     return <div className={styles.grid_card}>
         <div className={`${styles.story} ${isInView ? styles.story_active: ''}`} style={{maxWidth: fields.image.fields.file.details.image?.width}}>

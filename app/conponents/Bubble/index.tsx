@@ -6,7 +6,7 @@ import {
     useSpring,
     useReducedMotion, useScroll,
 } from "framer-motion";
-import Image from "next/image";
+import { LocalImage} from "@/app/conponents/CustomImage";
 
 type ParallaxProps = {
     offset?: number;
@@ -31,7 +31,7 @@ export const Bubble = ({ offset = 50, className }: ParallaxProps): JSX.Element =
         const element = ref.current!;
         const onResize = () => {
             setElementTop(
-                element.getBoundingClientRect().top + window.scrollY ||
+                element?.getBoundingClientRect().top + window.scrollY ||
                 window.pageYOffset
             );
             setClientHeight(window.innerHeight);
@@ -43,12 +43,12 @@ export const Bubble = ({ offset = 50, className }: ParallaxProps): JSX.Element =
 
     // Don't parallax if the user has "reduced motion" enabled
     if (prefersReducedMotion) {
-        return <> <Image src="/assets/buble.png"  alt="Bubble" width={300} height={300}/></>;
+        return <> <LocalImage src="/assets/buble.png"  alt="Bubble" width={300} height={300}/></>;
     }
 
     return (
         <motion.div ref={ref} style={{ y }} className={`bubble ${className}`}>
-            <Image src="/assets/buble.png"  alt="Bubble" width={300} height={300}/>
+            <LocalImage src="/assets/buble.png"  alt="Bubble" width={300} height={300}/>
         </motion.div>
     );
 };
