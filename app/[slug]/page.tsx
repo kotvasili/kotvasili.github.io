@@ -9,7 +9,6 @@ import Qrwhite from "@/public/assets/QRwhite.svg";
 import Line from "@/public/assets/Line.svg";
 const CONTENT_TYPE = 'contentPage';
 import Link from "next/link";
-export const revalidate = 43200000; //12 hrs
 
 
 export default async function Terns({ params: {slug} }: { params: { slug: string } }) {

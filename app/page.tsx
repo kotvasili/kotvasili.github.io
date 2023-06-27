@@ -8,7 +8,6 @@ import {StoryForm} from "@/app/conponents/Form";
 import {GetApp} from "@/app/conponents/GetApp";
 import {HeroCards} from "@/app/conponents/HeroCards";
 
-export const revalidate = 43200000; //12 hrs
 export async function generateMetadata(): Promise<Metadata> {
   const result = await Client.getEntries<IPageLandingFields>({
     content_type: 'pageLanding',
