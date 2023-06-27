@@ -237,3 +237,7 @@ main {
 img {
   opacity: 0;
 }
+
+img.image_loaded {
+  opacity: 1;
+}
