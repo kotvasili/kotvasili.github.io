@@ -11,34 +11,19 @@
   cursor: pointer
   @media screen and (max-width: 500px)
     transform: none
-  @media (hover: hover) and (pointer: fine)
-    &:hover
-      .story_back
-        img
-          opacity: 0
-          transform: scale(1.04)
-      .story_front
-        opacity: 1
-        &:after
-          transform: none
+  &_active
+    .story_back
+      img
+        opacity: 0 !important
+        transform: scale(1.04) !important
+    .story_front
+      opacity: 1 !important
+      &:after
+        transform: none !important
 
-      .story_back
-        &:before
-          opacity: 0
-  @media screen and (max-width: 800px)
-    &_active
-      .story_back
-        img
-          opacity: 0 !important
-          transform: scale(1.04) !important
-      .story_front
-        opacity: 1 !important
-        &:after
-          transform: none !important
-
-      .story_back
-        &:before
-          opacity: 0 !important
+    .story_back
+      &:before
+        opacity: 0 !important
   span
     position: absolute
     left: 0

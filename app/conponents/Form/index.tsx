@@ -56,7 +56,7 @@ export const StoryForm = (props: IGhostingFormFields) => {
     }}, [reset, setError]);
 
 
-    return <div className={styles.form_wrapper}>
+    return <div className={styles.form_wrapper} id="form">
         <div className={styles.form_step_container}>
             <div className={styles.form_step_container_inner}>
                 <p className={styles.form_step}>step 1</p>

@@ -21,12 +21,12 @@ type THero = {
 export const Hero: FC<PropsWithChildren & THero> = ({ctaText, heroTitle, heroTitle2, infoText, infoTitle, infoTitle2, children}) => {
 
  return <div className={styles.hero}>
+     <Qrwhite />
      <h1 className={`${typography.h1} title`}><b>{heroTitle}</b><span>{heroTitle2}</span></h1>
      {children}
      <ScrollButton text={ctaText}/>
      <div className={styles.promo}>
          <p className={typography.h4}>{infoTitle2}</p>
-         <Qrwhite />
      </div>
      <div className={`${styles.info} ${styles.info__one}`}>
          <p>{infoText.content[0]}</p>

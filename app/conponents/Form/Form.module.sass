@@ -19,8 +19,9 @@
     width: 100%
     max-width: 1504px
     padding: 0 32px
-    margin: 0 auto
+    margin: 20px auto 0
     position: relative
+    scroll-margin-top: 60px
   &_step
     font-weight: 700
     font-size: 96px
@@ -36,13 +37,14 @@
     &_container
       width: 100%
       position: relative
+
       &_inner
         position: absolute
         display: flex
         flex-flow: column nowrap
         justify-content: center
         align-items: center
-        bottom: 100%
+        top: 100%
         @media screen and (max-width: 500px)
           position: static
           margin-bottom: 20px

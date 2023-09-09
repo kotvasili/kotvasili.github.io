@@ -5,11 +5,11 @@ import {CustomImage} from "@/app/conponents/CustomImage";
 import styles from './HeroCards.module.sass'
 const config = [
    {rotate: '-28deg'},
-   {rotate: '-22deg'},
+   {rotate: '-17.2deg'},
    {rotate: '-16deg'},
-   {rotate: '-5deg'},
-   {rotate: '4deg'},
-   {rotate: '6.5deg'},
+   {rotate: '28deg'},
+   {rotate: '17.2deg'},
+   {rotate: '16deg'},
    {rotate: '11.2deg'},
    {rotate: '18.8deg'},
    {rotate: '20deg'},
@@ -24,7 +24,6 @@ export const HeroCards = ({images}: {images: Asset[]}) => {
    return <motion.div className={styles.hero_cards}>
       <motion.div className={styles.hero_cards_inner}
                   initial={{ opacity: 1, scale: 1}}
-                  animate={{ opacity: 0, scale: 0.8}}
                   transition={{ duration: 0.4, delay: 3}}
       >
       {images.map((image, index) => <motion.div

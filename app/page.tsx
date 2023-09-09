@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default async function  Home() {
   const pageData = await getLanding();
-  const images = pageData.stories!.slice(0, 9).map(story => story.fields.image!)
+  const images = pageData.stories!.slice(0, 6).map(story => story.fields.image!)
   return (<>
       <HeroCards images={images}/>
       <main>
@@ -40,10 +40,10 @@ export default async function  Home() {
                 infoTitle={pageData.infoBlocksTitle}
                 infoTitle2={pageData.infoBlocksTitle2}
           />
-          <StoryGrid stories={pageData.stories!}/>
-          <Steps {...pageData.ourInfoSteps?.fields!}/>
           <StoryForm {...pageData.form?.fields!}/>
           <GetApp {...pageData.getTheApp.fields} />
+          <StoryGrid stories={pageData.stories!}/>
+          <Steps {...pageData.getTheApp.fields}/>
       </main>
   </>
   )
