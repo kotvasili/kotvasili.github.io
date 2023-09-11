@@ -43,7 +43,7 @@ export const Bubble = ({ offset = 50, className }: ParallaxProps): JSX.Element =
 
     // Don't parallax if the user has "reduced motion" enabled
     if (prefersReducedMotion) {
-        return <> <LocalImage src="/assets/buble.png"  alt="Bubble" width={300} height={300}/></>;
+        return <div className={`bubble ${className}`}> <LocalImage src="/assets/buble.png"  alt="Bubble" width={300} height={300}/></div>;
     }
 
     return (
