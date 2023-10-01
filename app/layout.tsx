@@ -59,6 +59,7 @@ export default async function RootLayout({
                 content="/favicons/browserconfig.xml"
             />
             <meta property="og:type" content="website"/>
+            <meta property="og:site_name" content="EVA AI"/>
     </head>
       <body>
       <PageBG articles={articles.articles}/>
