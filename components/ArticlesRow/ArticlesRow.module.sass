@@ -1,0 +1,52 @@
+
+@keyframes scroll
+  0%
+    transform: translate3d(0%, 0, 0)
+  to
+    transform: translate3d(-100%, 0, 0)
+@keyframes scroll2
+  0%
+    transform: translate3d(0%, 0, 0)
+  to
+    transform: translate3d(-25%, 0, 0)
+
+.articles
+  width: 100%
+  overflow: hidden
+  margin-top: auto
+  position: absolute
+  //z-index: 10
+  pointer-events: all
+  padding-bottom: 3vh
+  font-size: 0
+  bottom: 0
+  left: 0
+  z-index: 100
+  display: flex
+  flex-flow: column nowrap
+  row-gap: 30px
+  ul
+    &:nth-child(2)
+      @media screen and (min-width: 601px)
+        display: none !important
+      li
+        animation: scroll linear infinite 60s reverse
+
+  &:hover
+    animation-play-state: paused
+
+  ul, li
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    justify-content: flex-start
+    a
+      margin-right: 30px
+  li
+    animation: scroll linear infinite 60s
+    transition: animation-play-state ease 0.3s
+  ul
+    &:hover
+      li
+        animation-play-state: paused
+

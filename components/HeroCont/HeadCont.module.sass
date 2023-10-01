@@ -1,0 +1,18 @@
+.headCont
+  display: flex
+  flex-flow: column nowrap
+  align-items: stretch
+  row-gap: 2vh
+  width: 100%
+  max-width: 30%
+  justify-content: center
+  min-width: 360px
+  @media screen and (max-width: 1100px)
+    max-width: 40%
+  @media screen and (max-width: 600px)
+    max-width: 100%
+    min-width: 0
+  h1, p
+    text-align: left
+  p
+    max-width: 400px

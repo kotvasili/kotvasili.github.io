@@ -1,59 +1,52 @@
-import {Client} from "@/contentful/utils";
-import { IPageLandingFields} from "@/contentful/generated/types";
-import {Metadata} from "next";
-import {Hero} from "@/app/conponents/Hero";
-import {StoryGrid} from "@/app/conponents/StoryGrid";
-import {Steps} from "@/app/conponents/Steps";
-import {StoryForm} from "@/app/conponents/Form";
-import {GetApp} from "@/app/conponents/GetApp";
-import {HeroCards} from "@/app/conponents/HeroCards";
 
+import {Client} from "@/contentful/utils";
+import { IEvaPageFields} from "@/contentful/generated/types";
+
+import {Metadata} from "next";
+import {HomeHero} from "@/components/HomeHero";
+import {HeroLinks} from "@/components/HeroLinks";
 export async function generateMetadata(): Promise<Metadata> {
-  const result = await Client.getEntries<IPageLandingFields>({
-    content_type: 'pageLanding',
+  const result = await Client.getEntries<IEvaPageFields>({
+    content_type: 'evaPage',
     locale: "en-US",
-    include: 1,
-    limit: 1
+    include: 2,
+    limit: 5
   });
-  const fields = result.items[0].fields.seoFields?.fields;
-  return {...fields!,
-      openGraph: {
-          title: fields?.title!,
-          description: fields?.description,
-          url: 'https://stopghosting.me',
-          siteName: 'Stop Ghosting me!',
-          locale: 'en_US',
-          type: 'website',
-      },
+  const fields = result.items.find(item => item.fields.title.toLowerCase().includes('home'))!.fields.seo?.fields;
+  return {
+    title: fields?.title,
+    description: fields?.description,
+    metadataBase: new URL('https://www.evaapp.ai'),
+    openGraph: {
+     title: fields?.title,
+     description: fields?.description,
+      locale: 'en_US',
+    },
+    twitter: {
+      title: fields?.title,
+      description: fields?.description,
+    }
   }
 }
 export default async function  Home() {
   const pageData = await getLanding();
-  const images = pageData.stories!.slice(0, 6).map(story => story.fields.image!)
-  return (<>
-      <HeroCards images={images}/>
-      <main>
-          <Hero ctaText={pageData.heroCta}
-                heroTitle={pageData.heroTitle!}
-                heroTitle2={pageData.heroTitle2!}
-                infoText={pageData.infoBlocks?.fields!}
-                infoTitle={pageData.infoBlocksTitle}
-                infoTitle2={pageData.infoBlocksTitle2}
-          />
-          <StoryForm {...pageData.form?.fields!}/>
-          <GetApp {...pageData.getTheApp.fields} />
-          <StoryGrid stories={pageData.stories!}/>
-          <Steps {...pageData.getTheApp.fields}/>
-      </main>
-  </>
+  return (
+          <HomeHero
+              title={pageData.heroContent.fields.title}
+              text={pageData.heroContent.fields.description}
+              botImages={pageData.heroContent.fields.botImages!}
+          >
+            <HeroLinks {...pageData.heroContent.fields.footer.fields}/>
+          </HomeHero>
+
   )
 }
 async function getLanding() {
-  const result = await Client.getEntries<IPageLandingFields>({
-    content_type: 'pageLanding',
+  const result = await Client.getEntries<IEvaPageFields>({
+    content_type: 'evaPage',
     locale: "en-US",
-    include: 1,
-    limit: 1
+    include: 2,
+    limit: 5
   });
-  return result.items[0].fields
+  return result.items.find(item => item.fields.title.toLowerCase().includes('home'))!.fields
 }

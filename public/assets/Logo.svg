@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="28" fill="none" viewBox="0 0 77 20">
+  <g filter="url(#a)">
+    <path fill="#fff" d="M15.34 17.06v1.56H5V1.38h10.18v1.56H6.8v6h7.66v1.56H6.8v6.56h8.54ZM32.13 1.38l-6.46 17.24H23.7L17.27 1.38h1.87l5.57 15.17 5.62-15.17h1.8ZM43.75 18.62l-1.8-4.78H33.9l-1.83 4.78h-1.77L37 1.38h1.96l6.67 17.24h-1.9ZM37.94 3.3l-3.48 9.08h6.91L37.94 3.3ZM65.4 18.62l-1.8-4.78h-8.04l-1.82 4.78h-1.78l6.7-17.24h1.97l6.67 17.24h-1.9ZM59.6 3.3l-3.49 9.08h6.92L59.59 3.3ZM71.7 18.62h-1.8V1.38h1.8v17.24Z"/>
+    <path stroke="#000" d="M15.84 17.06v-.5H7.3V11h7.66V8.44H7.3v-5H15.68V.88H4.5v18.24h11.34v-2.06ZM32.6 1.56l.25-.68h-2.87l-.12.33-5.15 13.9-5.1-13.9-.12-.33H16.55l.25.68 6.44 17.23.12.33h2.66l.12-.33L32.6 1.56Zm10.68 17.23.12.33H46.37l-.26-.68L39.44 1.2 39.3.88h-2.65l-.12.32-6.7 17.23-.27.69h2.86l.12-.33 1.7-4.45h7.35l1.68 4.45Zm21.65 0 .13.33H68.03l-.27-.68L61.1 1.2l-.12-.32h-2.65l-.13.32-6.7 17.23-.26.69H54.08l.12-.33 1.7-4.45h7.36l1.67 4.45Zm6.77.33h.5V.88h-2.8v18.24h2.3Zm-31.05-7.24h-5.47l2.75-7.17 2.72 7.17Zm21.65 0h-5.46L59.6 4.7l2.71 7.17Z"/>
+  </g>
+  <defs>
+    <filter id="a" width="76.7" height="27.23" x="0" y=".38" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2042_8188"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_2042_8188" result="shape"/>
+    </filter>
+  </defs>
+</svg>

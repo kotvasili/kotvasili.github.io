@@ -3,6 +3,90 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IAppLinksFields {
+  /** QRCode */
+  qrCode: Asset;
+
+  /** Gplay */
+  gplay: string;
+
+  /** AppStore */
+  appStore: string;
+
+  /** Universal Link */
+  universalLink: string;
+}
+
+export interface IAppLinks extends Entry<IAppLinksFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "appLinks";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IArticleFields {
+  /** Title */
+  title: string;
+
+  /** image */
+  image: Asset;
+
+  /** link */
+  link: string;
+}
+
+export interface IArticle extends Entry<IArticleFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "article";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IArticleListFields {
+  /** Title */
+  title: string;
+
+  /** articles */
+  articles: IArticle[];
+}
+
+export interface IArticleList extends Entry<IArticleListFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "articleList";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IComponentSeoFields {
   /** Page title */
   title: string;
@@ -77,6 +161,111 @@ export interface IContentPage extends Entry<IContentPageFields> {
     contentType: {
       sys: {
         id: "contentPage";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IEvaAiHeroFields {
+  /** Block Title */
+  btitle: string;
+
+  /** Title */
+  title: string;
+
+  /** Description */
+  description: string;
+
+  /** Footer */
+  footer: IAppLinks;
+
+  /** Bot Images */
+  botImages?: Asset[] | undefined;
+
+  /** terms */
+  terms?: string | undefined;
+
+  /** Privacypolicy */
+  privacypolicy?: string | undefined;
+
+  /** Copyright */
+  copyright?: string | undefined;
+}
+
+export interface IEvaAiHero extends Entry<IEvaAiHeroFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "evaAiHero";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IEvaHeaderFields {
+  /** Has Login button? */
+  hasLoginButton: boolean;
+
+  /** copyright */
+  copyright: string;
+
+  /** SocLinks */
+  socLinks: IArticle[];
+
+  /** Web Url */
+  webUrl?: string | undefined;
+
+  /** universalLink */
+  universalLink: string;
+}
+
+export interface IEvaHeader extends Entry<IEvaHeaderFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "evaHeader";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IEvaPageFields {
+  /** Title */
+  title: string;
+
+  /** SEO */
+  seo?: ISeoBlock | undefined;
+
+  /** HeroContent */
+  heroContent: IEvaAiHero;
+}
+
+export interface IEvaPage extends Entry<IEvaPageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "evaPage";
         linkType: "ContentType";
         type: "Link";
       };
@@ -290,6 +479,54 @@ export interface IPageLanding extends Entry<IPageLandingFields> {
   };
 }
 
+export interface ISeoBlockFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Description */
+  description?: string | undefined;
+
+  /** Keywords */
+  keywords?: string | undefined;
+
+  /** OpenGraph Title */
+  ogTitle?: string | undefined;
+
+  /** OpenGraph Description */
+  ogDescription?: string | undefined;
+
+  /** OpenGraph Image */
+  ogImage?: Asset | undefined;
+
+  /** Twitter Title */
+  twitterTitle?: string | undefined;
+
+  /** Twitter Description */
+  twitterDescription?: string | undefined;
+
+  /** Twitter Image */
+  twitterImage?: Asset | undefined;
+}
+
+/** To use on EVA landing */
+
+export interface ISeoBlock extends Entry<ISeoBlockFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "seoBlock";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IStoryCardFields {
   /** number */
   number: number;
@@ -324,25 +561,39 @@ export interface IStoryCard extends Entry<IStoryCardFields> {
 }
 
 export type CONTENT_TYPE =
+  | "appLinks"
+  | "article"
+  | "articleList"
   | "componentSeo"
   | "contentPage"
+  | "evaAiHero"
+  | "evaHeader"
+  | "evaPage"
   | "getTheApp"
   | "ghostingForm"
   | "ghostingHeader"
   | "infoBlock"
   | "ourInfo"
   | "pageLanding"
+  | "seoBlock"
   | "storyCard";
 
 export type IEntry =
+  | IAppLinks
+  | IArticle
+  | IArticleList
   | IComponentSeo
   | IContentPage
+  | IEvaAiHero
+  | IEvaHeader
+  | IEvaPage
   | IGetTheApp
   | IGhostingForm
   | IGhostingHeader
   | IInfoBlock
   | IOurInfo
   | IPageLanding
+  | ISeoBlock
   | IStoryCard;
 
 export type LOCALE_CODE = "de-DE" | "en-US";

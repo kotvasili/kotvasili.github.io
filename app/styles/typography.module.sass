@@ -2,45 +2,20 @@
 
 .h1,.h2,.h3, .h4
   text-transform: uppercase
-  font-weight: 600
-  -webkit-text-stroke: 2px rgba(white, 0.7)
-  color: transparent
+  font-weight: 400
+  color: var(--color-white)
   line-height: 102%
   text-align: center
-  b
-    filter: var(--text-filter)
-    opacity: 0.7
-  span
-    display: block
-    width: max-content
-    -webkit-text-stroke: unset
-    color: #fff
-    margin: 0 auto
-
-@keyframes clip-fade
-  100%
-    mask-position: right
+  max-width: 100%
+  flex-wrap: wrap
 
 .h1
-  @include css-lock('font-size', 'px', 40, 128, 360, 1600)
-  @include css-lock('letter-spacing', 'px', 1.77206, 3.81838, 420, 1600)
+  @include css-lock('font-size', 'px', 39, 128, 320, 1360)
   line-height: 102%
-
-  span
-    //mask-image: linear-gradient(to right, transparent,transparent 2%, #000 35%, #000)
-    mask-image: linear-gradient(90deg, #0000, #fff, #0000)
-    mask-size: 300% 100%
-    filter: drop-shadow(0px 0px 4.02843px #FF00F5)
-    animation: clip-fade 8s infinite alternate
+  @media screen and (min-width: 1367px)
+    font-size: 8vw !important
 .h2
-  font-weight: 700
-  @include css-lock('font-size', 'px', 44, 77, 420, 1600)
-  b
-    filter: drop-shadow(0px 0px 7.00072px #FF00F5) drop-shadow(0px 0px 7.00072px #8773FF)
-  span
-    text-shadow: 0px 0px 7.00072px #FF00F5, 0px 0px 7.00072px #8773FF
-    letter-spacing: 3px
-    @include css-lock('font-size', 'px', 32, 45, 420, 1600)
+  @include css-lock('font-size', 'px', 40, 48, 360, 1360)
 
 .h3
   color: #fff
@@ -75,3 +50,5 @@
   -webkit-text-stroke: 1px rgba(white, 0.7)
   opacity: 0.4
   animation: fade2 3s alternate infinite
+
+
