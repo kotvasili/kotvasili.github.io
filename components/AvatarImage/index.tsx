@@ -3,7 +3,6 @@ import {FC, useState} from "react";
 import { motion} from "framer-motion";
 import Image from "next/image";
 import {Asset} from "contentful";
-import {contentfulLoader} from "@delicious-simplicity/next-image-contentful-loader";
 
 const variants = {
     initial: {
