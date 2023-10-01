@@ -2,7 +2,7 @@ import {AboutHero} from "@/components/AboutHero";
 import {Client} from "@/contentful/utils";
 import {IEvaPageFields} from "@/contentful/generated/types";
 import {FooterLinks} from "@/components/FooterLinks";
-import {Metadata} from "next";
+import {Metadata, ResolvingMetadata} from "next";
 
 export default async function AboutPage(){
     const {heroContent} = await getAbout();
@@ -28,7 +28,7 @@ async function getAbout() {
     return result.items.find(item => item.fields.title.toLowerCase().includes('about'))!.fields
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata(_: any, parent: ResolvingMetadata): Promise<Metadata> {
     const result = await Client.getEntries<IEvaPageFields>({
         content_type: 'evaPage',
         locale: "en-US",
@@ -36,6 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
         limit: 5
     });
     const fields = result.items.find(item => item.fields.title.toLowerCase().includes('about'))!.fields.seo?.fields;
+    const previousImages = (await parent).openGraph?.images || []
     return {
         title: fields?.title,
         description: fields?.description,
@@ -43,10 +44,12 @@ export async function generateMetadata(): Promise<Metadata> {
             title: fields?.title,
             description: fields?.description,
             locale: 'en_US',
+            images: [...previousImages]
         },
         twitter: {
             title: fields?.title,
             description: fields?.description,
+            images: [...previousImages]
         }
     }
 }
