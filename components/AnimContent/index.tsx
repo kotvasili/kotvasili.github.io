@@ -26,6 +26,7 @@ export const AnimContent: FC<PropsWithChildren & {delay: number; className?: str
     }
     return <motion.div
         variants={vars}
+        style={{ transform: 'translateZ(0)'}}
         animate='animate'
         initial='initial'
         className={className}

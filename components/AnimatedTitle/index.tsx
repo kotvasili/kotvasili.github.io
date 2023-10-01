@@ -6,6 +6,27 @@ type TAnimTitle = {
     text: string,
     className?: string
 }
+
+const child = {
+    visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+            type: "spring",
+            damping: 12,
+            stiffness: 100,
+        },
+    },
+    hidden: {
+        opacity: 0,
+        y: 20,
+        z: -10,
+        transition: {
+            ease :'easeIn'
+        },
+    },
+};
 export const AnimatedTitle:FC<TAnimTitle> = ({ text, className }) => {
 
     const letters = Array.from(text);
@@ -17,27 +38,7 @@ export const AnimatedTitle:FC<TAnimTitle> = ({ text, className }) => {
         }),
     };
 
-    const child = {
-        visible: {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            z: 0,
-            transition: {
-                type: "spring",
-                damping: 12,
-                stiffness: 100,
-            },
-        },
-        hidden: {
-            opacity: 0,
-            y: 20,
-            z: -10,
-            transition: {
-                ease :'easeIn'
-            },
-        },
-    };
+
 
     return (
         <AnimatePresence mode="wait">
