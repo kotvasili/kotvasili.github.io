@@ -35,7 +35,6 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
         title: fields?.title,
         description: fields?.description,
-        metadataBase: new URL('https://www.evaapp.ai'),
         openGraph: {
             title: fields?.title,
             description: fields?.description,
