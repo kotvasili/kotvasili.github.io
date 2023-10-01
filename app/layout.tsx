@@ -28,7 +28,6 @@ export default async function RootLayout({
   return (
     <html lang="en" className={general.className}>
         <head>
-            <link rel='icon' href='/favicon.ico'/>
             <meta name="viewport-fit" content="cover" />
             <link
                 rel="apple-touch-icon"

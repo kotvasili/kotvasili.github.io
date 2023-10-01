@@ -36,9 +36,8 @@ export const AvatarImage = ({fields: {file, title}, className = '', delay, singl
             initial="initial"
         >
             <Image
-                loader={(props) => contentfulLoader(props, { q: 100, fm: 'webp'})}
                 alt={title}
-                src={file.url ? `https:${file.url}` : ''}
+                src={file.url ? `https:${file.url}?fm=webp&q=100` : ''}
                 fill
                 decoding='async'
                 sizes={single ? "(max-width: 600px) 70vw, (max-width: 1000px) 50vw, 70vw" : "(max-width: 600px) 66vw, (max-width: 1000px) 33vw, 25vw"}
