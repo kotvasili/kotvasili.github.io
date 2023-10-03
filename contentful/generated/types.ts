@@ -87,6 +87,40 @@ export interface IArticleList extends Entry<IArticleListFields> {
   };
 }
 
+export interface IBrandbookBlockFields {
+  /** title */
+  title: string;
+
+  /** text */
+  text?: string | undefined;
+
+  /** images */
+  images: Asset[];
+
+  /** Hash */
+  hash: string;
+
+  /** Link text */
+  linkText: string;
+}
+
+export interface IBrandbookBlock extends Entry<IBrandbookBlockFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "brandbookBlock";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IComponentSeoFields {
   /** Page title */
   title: string;
@@ -254,6 +288,12 @@ export interface IEvaPageFields {
 
   /** HeroContent */
   heroContent: IEvaAiHero;
+
+  /** Brandbook sections */
+  brandbookSections?: IBrandbookBlock[] | undefined;
+
+  /** Brandbook materials */
+  brandbookMaterials?: Asset | undefined;
 }
 
 export interface IEvaPage extends Entry<IEvaPageFields> {
@@ -564,6 +604,7 @@ export type CONTENT_TYPE =
   | "appLinks"
   | "article"
   | "articleList"
+  | "brandbookBlock"
   | "componentSeo"
   | "contentPage"
   | "evaAiHero"
@@ -582,6 +623,7 @@ export type IEntry =
   | IAppLinks
   | IArticle
   | IArticleList
+  | IBrandbookBlock
   | IComponentSeo
   | IContentPage
   | IEvaAiHero
