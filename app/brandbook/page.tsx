@@ -1,18 +1,23 @@
+
 import {BrandBookHero} from "@/components/BrandBookHero";
-import {HeroWrapper} from "@/components/HeroWrapper";
 import {Client} from "@/contentful/utils";
 import {IEvaPageFields} from "@/contentful/generated/types";
-import {Asset} from "contentful";
-import {PropsWithChildren} from "react";
 import {Metadata, ResolvingMetadata} from "next";
-
+import {BrandbookContent} from "@/components/BrandbookContent";
 export default async function BrandBookPage() {
     const pageData = await getBrandBook()
-    return  <BrandBookHero
+
+    return  <><BrandBookHero
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
         botImages={pageData.heroContent.fields.botImages!}
+        fileUrl={pageData.brandbookMaterials?.fields.file.url!}
     />
+    <BrandbookContent
+        sections={...pageData.brandbookSections!}
+        fileUrl={pageData.brandbookMaterials?.fields.file.url!}
+    />
+    </>
 }
 async function getBrandBook() {
     const result = await Client.getEntries<IEvaPageFields>({

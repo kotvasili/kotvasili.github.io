@@ -3,7 +3,6 @@ import './globals.sass'
 import {Header} from '@/components/Header'
 import localFont from 'next/font/local'
 import {PageBG} from "@/components/PageBG";
-import {AnimLayout} from "@/components/AnimLayout";
 import {Client} from "@/contentful/utils";
 import {IArticleListFields, IEvaHeaderFields} from "@/contentful/generated/types";
 const general = localFont(	{

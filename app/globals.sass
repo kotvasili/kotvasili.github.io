@@ -6,6 +6,7 @@ html, body
   scrollbar-width: thin
 html
   background-color: var(--color-black)
+  scroll-behavior: smooth
 body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
@@ -47,11 +48,12 @@ a
   justify-content: center
   & > *
     position: relative
-    //z-index: 1
 main
-  height: 100svh
   width: 100%
-  overflow: hidden
+  &:not(:has(#bb))
+    overflow: hidden
+    height: 100svh
+
 p
   text-shadow: 0 1px 2px #000
   font-size: 18px
@@ -65,3 +67,5 @@ p
     &.h
       opacity: 0
       visibility: hidden
+img
+  touch-action: pan-y

@@ -2,10 +2,10 @@
 import {Client} from "@/contentful/utils";
 import { IEvaPageFields} from "@/contentful/generated/types";
 
-import {Metadata} from "next";
+import {Metadata, ResolvingMetadata} from "next";
 import {HomeHero} from "@/components/HomeHero";
 import {HeroLinks} from "@/components/HeroLinks";
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata(_: any, parent: ResolvingMetadata): Promise<Metadata>  {
   const result = await Client.getEntries<IEvaPageFields>({
     content_type: 'evaPage',
     locale: "en-US",
@@ -13,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     limit: 5
   });
   const fields = result.items.find(item => item.fields.title.toLowerCase().includes('home'))!.fields.seo?.fields;
+  const previousImages = (await parent).openGraph?.images || []
   return {
     title: fields?.title,
     description: fields?.description,
@@ -20,10 +21,12 @@ export async function generateMetadata(): Promise<Metadata> {
      title: fields?.title,
      description: fields?.description,
       locale: 'en_US',
+      images: [...previousImages]
     },
     twitter: {
       title: fields?.title,
       description: fields?.description,
+      images: [...previousImages]
     }
   }
 }
