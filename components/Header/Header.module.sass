@@ -3,14 +3,19 @@
   flex-flow: row nowrap
   align-items: center
   justify-content: space-between
-  padding: 36px 42px 0
-  position: absolute
+  padding: 36px 42px 10px
+  position: sticky
   left: 0
   top: 0
   width: 100%
   z-index: 10
+  &:global
+    &.abs
+      position: absolute
+    &.black
+      background: #000
   @media screen and (max-width: 600px)
-    padding: 20px 20px 0
+    padding: 20px 20px 10px
   &_left, &_right
     display: flex
     flex-flow: row nowrap

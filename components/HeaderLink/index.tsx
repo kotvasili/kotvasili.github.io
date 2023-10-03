@@ -8,10 +8,11 @@ type THeaderLink = {
     href: string;
     text?: string
     onClick?: any
+    blank?: boolean
 }
-export const HeaderLink:FC<THeaderLink & PropsWithChildren> = ({href, text, children, onClick}) => {
+export const HeaderLink:FC<THeaderLink & PropsWithChildren> = ({href,blank = false, text, children, onClick}) => {
     const pathname = usePathname()
-    return <Link href={href} prefetch onClick={onClick}>
+    return <Link href={href} prefetch onClick={onClick} target={blank ? '_blank' : '_self'}>
         <Button buttonType="small" className={pathname === href ? 'active': ''}>{text || children}</Button>
     </Link>
 }

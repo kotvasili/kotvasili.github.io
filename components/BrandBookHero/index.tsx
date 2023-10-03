@@ -12,14 +12,17 @@ import {FC, PropsWithChildren} from "react";
 type TBrandbook = {
     title: string;
     text: string;
+    fileUrl: string;
     botImages: Asset[]
 } & PropsWithChildren
 
-export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages}) => {
+export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages, fileUrl}) => {
     return  <HeroWrapper className={`${styles.brandbook}`} >
         <div className={styles.brandbook_content}>
             <AnimatedTitle className={typography.h1} text={title} />
-            <AnimContent delay={0.8}>  <Button buttonType="large"><Arrow/>Brandbook</Button></AnimContent>
+            <AnimContent delay={0.8}> <a href={'https:' + fileUrl}>
+                <Button buttonType="large"><Arrow/>Brandbook</Button>
+            </a></AnimContent>
         </div>
         <div className={styles.brandbook_image_wrapper}>
             <AvatarImage className={styles.brandbook_image} {...botImages[0]} delay={0.05} single/>

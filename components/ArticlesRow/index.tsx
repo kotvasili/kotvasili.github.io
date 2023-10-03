@@ -10,24 +10,24 @@ export const ArticlesRow = ({articles }: {articles: IArticle[]}) => {
         <ul>
             <li>
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
             </li>
             <li>
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
@@ -36,24 +36,24 @@ export const ArticlesRow = ({articles }: {articles: IArticle[]}) => {
         <ul>
             <li>
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
             </li>
             <li>
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}
                 {articles.map((article) => (
-                    <a href={article.fields.link} key={article.fields.title}>
+                    <a href={article.fields.link} key={article.fields.title} target='_blank'>
                         <CustomImage {...article.fields.image}/>
                     </a>
                 ))}

@@ -1,0 +1,145 @@
+.bb
+  &_wrapper
+    position: relative
+    padding: 150px 43px 0
+    display: grid
+    grid-template-columns: 1fr
+    grid-gap: 1rem
+    @media (min-width: 601px)
+      grid-template-columns: 170px minmax(10px, 1fr)
+    @media screen and (max-width: 600px)
+      padding: 0 20px 0
+  &_aside
+    position: sticky
+    top: 89px
+    align-self: start
+    display: flex
+    flex-flow: column nowrap
+    @media screen and (max-width: 600px)
+      background: #000
+      flex-flow: row nowrap
+      column-gap: 24px
+      padding: 10px 0
+      overflow-x: auto
+      white-space: nowrap
+      z-index: 10
+      top: 63px
+      scrollbar-width: none
+      &::-webkit-scrollbar
+        display: none
+    a
+      font-size: 16px
+      font-weight: 300
+      transition: opacity .2s
+      color: var(--color-white)
+      opacity: 0.4
+      display: block
+      padding: 1.5px 0
+      &:hover
+        opacity: 1
+      &:global
+        &.active
+          opacity: 1
+          text-decoration: underline
+
+  &_main
+  &_sign
+    display: flex
+    gap: 12px !important
+    flex-flow: row wrap !important
+    img:first-child, img:nth-child(2)
+      max-width: calc(50% - 6px)
+  &_avoid
+    h2
+      @media screen and (min-width: 901px)
+        min-width: 200%
+      text-wrap: balance
+  &_block
+    padding-bottom: 72px
+    display: flex
+    flex-flow: row wrap
+    align-items: flex-start
+    column-gap: 60px
+    row-gap: 56px
+    padding-right: 60px
+    padding-left: 60px
+    &:first-child
+      scroll-margin-top: 90px
+    @media screen and (max-width: 1024px)
+      column-gap: 32px
+      row-gap: 39px
+      padding-right: 40px
+      padding-left: 40px
+    @media screen and (max-width: 900px)
+      row-gap: 24px
+      div:empty
+        display: none
+    @media screen and (max-width: 600px)
+      padding-right: 0
+      padding-left: 0
+    &:not(:last-child)
+      border-bottom: 1px solid rgba(255,255,255,0.5)
+    p
+      font-size: 18px
+      padding-right: 10px
+    img
+      width: 100%
+      height: auto
+    & *
+      text-align: left
+    h2
+      justify-items: flex-start
+    &:not(:first-child)
+      padding-top: 72px
+  &_col
+    width: calc(50% - 30px)
+    @media screen and (max-width: 900px)
+      width: 100%
+    &:not(.bb_grid)
+      display: flex
+      flex-flow: column nowrap
+      row-gap: 45px
+      align-items: flex-start
+      @media screen and (max-width: 900px)
+        row-gap: 24px
+
+  &_imggrid
+    display: flex
+    flex-flow: row nowrap
+    align-items: stretch
+    overflow-x: auto
+    column-gap: 16px
+    width: 100%
+    &::-webkit-scrollbar
+      display: none
+    &_item
+      display: grid
+      column-gap: 16px
+      row-gap: 24px
+      grid-template-columns: repeat(3, 1fr)
+      width: calc(50% - 8px)
+      @media screen and (max-width: 600px)
+        min-width: 80%
+  &_footer
+    padding: 0 43px 47px
+    @media screen and (max-width: 600px)
+      padding: 0 20px 30px
+    &_inner
+      display: flex
+      flex-flow: row nowrap
+      justify-content: space-between
+      align-items: center
+      padding-top: 28px
+      border-top: 1px solid rgba(255,255,255,0.5)
+      @media screen and (max-width: 750px)
+        flex-flow: column nowrap
+        row-gap: 24px
+        align-items: flex-start
+      p
+        font-size: 24px
+        font-weight: 300
+        @media screen and (max-width: 1024px)
+          &:nth-child(2)
+            font-size: 18px
+
+
