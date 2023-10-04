@@ -13,19 +13,24 @@ type TBrandbook = {
     title: string;
     text: string;
     fileUrl: string;
+    hasImage?: boolean;
     botImages: Asset[]
 } & PropsWithChildren
 
-export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages, fileUrl}) => {
+export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages, fileUrl, hasImage = true}) => {
     return  <HeroWrapper className={`${styles.brandbook}`} >
         <div className={styles.brandbook_content}>
             <AnimatedTitle className={typography.h1} text={title} />
+            {hasImage ?
             <AnimContent delay={0.8}> <a href={'https:' + fileUrl}>
                 <Button buttonType="large"><Arrow/>Brandbook</Button>
-            </a></AnimContent>
+            </a></AnimContent> : null}
         </div>
-        <div className={styles.brandbook_image_wrapper}>
-            <AvatarImage className={styles.brandbook_image} {...botImages[0]} delay={0.05} single/>
-        </div>
+        {hasImage ?
+            <div className={styles.brandbook_image_wrapper}>
+                <AvatarImage className={styles.brandbook_image} {...botImages[0]} delay={0.05} single/>
+            </div> : null
+        }
+
     </HeroWrapper>
 }
