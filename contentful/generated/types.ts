@@ -294,6 +294,9 @@ export interface IEvaPageFields {
 
   /** Brandbook materials */
   brandbookMaterials?: Asset | undefined;
+
+  /** richContent */
+  richContent?: Document | undefined;
 }
 
 export interface IEvaPage extends Entry<IEvaPageFields> {
