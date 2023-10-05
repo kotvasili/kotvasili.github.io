@@ -226,6 +226,15 @@ export interface IEvaAiHeroFields {
 
   /** Copyright */
   copyright?: string | undefined;
+
+  /** Customer Support */
+  customerSupport?: string | undefined;
+
+  /** CTA */
+  cta?: string | undefined;
+
+  /** richContent */
+  richContent?: Document | undefined;
 }
 
 export interface IEvaAiHero extends Entry<IEvaAiHeroFields> {

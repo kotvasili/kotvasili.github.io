@@ -11,7 +11,7 @@ export default async function BrandBookPage() {
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
         botImages={pageData.heroContent.fields.botImages!}
-        fileUrl={pageData.brandbookMaterials?.fields.file.url!}
+        cta={pageData.heroContent.fields.cta!}
     />
     <BrandbookContent
         sections={...pageData.brandbookSections!}
@@ -24,7 +24,7 @@ async function getBrandBook() {
         content_type: 'evaPage',
         locale: "en-US",
         include: 2,
-        limit: 5
+        limit: 10
     });
     return result.items.find(item => item.fields.title.toLowerCase().includes('brandbook'))!.fields
 }
@@ -34,7 +34,7 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
         content_type: 'evaPage',
         locale: "en-US",
         include: 2,
-        limit: 5
+        limit: 10
     });
     const fields = result.items.find(item => item.fields.title.toLowerCase().includes('brandbook'))!.fields.seo?.fields;
     const previousImages = (await parent).openGraph?.images || []

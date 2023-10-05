@@ -38,7 +38,7 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
             animate={{opacity: 1, y: 0}}
             transition={{delay: 2.3, duration: 0.5}}
             //@ts-ignore
-            className={`${styles.header} ${['/about', '/'].includes(pathname) ? 'abs' : ''} ${scrollPosition > globalThis.window?.innerHeight ? "black" : ""}`}>
+            className={`${styles.header} ${['/about', '/', '/support', '/support.html'].includes(pathname) ? 'abs' : ''} ${scrollPosition > globalThis.window?.innerHeight ? "black" : ""}`}>
         <div className={styles.header_left}>
             <Link href='/'>
                 <Logo />
@@ -67,7 +67,6 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
                 <Logo />
             </Link>
             <div className={styles.menu_links}>
-                <HeaderLink text="Stop Ghosting!" href='https://stopghosting.me/' onClick={() => setOpen(false)} blank/>
                 <HeaderLink text="About Us" href="/about" onClick={() => setOpen(false)}/>
                 <HeaderLink text="Brandbook" href="/brandbook" onClick={() => setOpen(false)}/>
                 {hasLoginButton ?

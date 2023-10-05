@@ -10,7 +10,7 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
     content_type: 'evaPage',
     locale: "en-US",
     include: 2,
-    limit: 5
+    limit: 10
   });
   const fields = result.items.find(item => item.fields.title.toLowerCase().includes('home'))!.fields.seo?.fields;
   const previousImages = (await parent).openGraph?.images || []
@@ -48,7 +48,7 @@ async function getLanding() {
     content_type: 'evaPage',
     locale: "en-US",
     include: 2,
-    limit: 5
+    limit: 10
   });
   return result.items.find(item => item.fields.title.toLowerCase().includes('home'))!.fields
 }

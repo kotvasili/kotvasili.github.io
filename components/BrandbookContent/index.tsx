@@ -1,8 +1,9 @@
 'use client'
-import {FC, useEffect, useState} from "react";
+import {FC, MouseEvent, useCallback, useEffect, useState} from "react";
 import {IBrandbookBlock} from "@/contentful/generated/types";
 import styles from "@/components/BrandbookContent/BB.module.sass";
 import {BBBlock} from "@/components/BrandbookContent/BBBlock";
+import {Position} from "@/app/utils";
 
 export const BrandbookContent: FC<{sections :IBrandbookBlock[]; fileUrl: string}> = ({sections, fileUrl}) => {
     const [active, setActive] = useState('')
@@ -12,6 +13,14 @@ export const BrandbookContent: FC<{sections :IBrandbookBlock[]; fileUrl: string}
             title: item.fields.linkText
         }
     })
+    const handleClick = useCallback(( name: string) => (e: MouseEvent)  => {
+        e.preventDefault()
+        const el = document.getElementById(name)
+        if (el && el.offsetTop) {
+            // @ts-ignore
+            window.scroll(0, Position(el));
+        }
+    }, [])
     useEffect(() => {
         const el = document.getElementById(`${active}-link`);
         if(el){
@@ -39,7 +48,7 @@ export const BrandbookContent: FC<{sections :IBrandbookBlock[]; fileUrl: string}
     return  <><div className={styles.bb_wrapper} id='bb'>
         <div className={styles.bb_aside}>
             {links?.map(link => {
-                return <a key={`#${link.hash}`} id={`${link.hash}-link`} href={`#${link.hash}`} className={active === link.hash ? 'active' : ''}>{link.title}</a>
+                return <a key={`#${link.hash}`} id={`${link.hash}-link`} href={`#${link.hash}`} className={active === link.hash ? 'active' : ''} onClick={handleClick(link.hash)}>{link.title}</a>
             })}
         </div>
         <div className={styles.bb_main}>

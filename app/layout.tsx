@@ -83,7 +83,6 @@ async function getArticles() {
         include: 1,
         limit: 1
     });
-    // console.log(header)
     return {
         header: header.items[0].fields,
         articles: result.items[0].fields

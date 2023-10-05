@@ -20,6 +20,7 @@ export default async function PrivacyPage() {
         hasImage={false}
         botImages={pageData.heroContent.fields.botImages!}
         fileUrl={pageData.brandbookMaterials?.fields.file.url!}
+        cta={pageData.heroContent.fields.cta!}
     />
         <div className='content' id='bb'>
             {documentToReactComponents(pageData.richContent!, options)}
@@ -31,7 +32,7 @@ async function getPrivacy() {
         content_type: 'evaPage',
         locale: "en-US",
         include: 2,
-        limit: 5
+        limit: 10
     });
     return result.items.find(item => item.fields.title.toLowerCase().includes('privacy'))!.fields
 }
@@ -41,7 +42,7 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
         content_type: 'evaPage',
         locale: "en-US",
         include: 2,
-        limit: 5
+        limit: 10
     });
     const fields = result.items.find(item => item.fields.title.toLowerCase().includes('privacy'))!.fields.seo?.fields;
     const previousImages = (await parent).openGraph?.images || []
