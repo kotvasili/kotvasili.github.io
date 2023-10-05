@@ -1,6 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Client } from '@/contentful/utils';
-import {IContentPageFields} from "@/contentful/generated/types";
 
 export default async function handler(
     req: NextApiRequest,
@@ -12,18 +10,14 @@ export default async function handler(
     }
 
     try {
-        const { items } = await Client.getEntries<IContentPageFields>({
-            content_type: 'contentPage',
-        });
 
         await Promise.all(
-            items.map(async ({ fields }) =>
+            ['/', '/about', '/brandbook', '/terms', '/pp', '/support'].map(async item =>
                 Promise.all([
-                    res.revalidate('/' + fields.slug),
+                    res.revalidate(item),
                 ])
             )
         );
-        await  res.revalidate('/');
         return res.json({ revalidated: true, now: Date.now() });
     } catch (err) {
         // If there was an error, Next.js will continue
