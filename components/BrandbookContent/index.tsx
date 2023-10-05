@@ -18,7 +18,7 @@ export const BrandbookContent: FC<{sections :IBrandbookBlock[]; fileUrl: string}
         const el = document.getElementById(name)
         if (el && el.offsetTop) {
             // @ts-ignore
-            window.scroll(0, Position(el));
+            window.scroll(0, Position(el, 70));
         }
     }, [])
     useEffect(() => {

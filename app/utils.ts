@@ -1,5 +1,5 @@
 export function Position(obj: HTMLElement, offset = 0) {
-    var currenttop = -105 + offset;
+    var currenttop = 0 - offset;
     if (obj.offsetParent) {
         do {
             currenttop += obj.offsetTop;

@@ -10,7 +10,7 @@ export const BTN: FC<PropsWithChildren> = ({children}) => {
         const el = document.getElementById('bb');
         if(el){
             // @ts-ignore
-            window.scroll(0, Position(el, 50));
+            window.scroll(0, Position(el, 100));
         }
     }
     return <Button buttonType="large" onClick={onClick}><Arrow/>{children}</Button>

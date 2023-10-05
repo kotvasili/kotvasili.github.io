@@ -1,20 +1,21 @@
 .bb
   &_wrapper
     position: relative
-    padding: 150px 43px 0
+    padding: 50px 43px 0
     display: grid
     grid-template-columns: 1fr
     grid-gap: 1rem
     @media (min-width: 601px)
       grid-template-columns: 170px minmax(10px, 1fr)
     @media screen and (max-width: 600px)
-      padding: 0 20px 0
+      padding: 50px 20px 0
   &_aside
     position: sticky
-    top: 89px
+    top: 39px
     align-self: start
     display: flex
     flex-flow: column nowrap
+    padding-top: 50px
     @media screen and (max-width: 600px)
       background: #000
       flex-flow: row nowrap
@@ -56,26 +57,22 @@
         min-width: 180%
       text-wrap: balance
   &_block
-    padding-bottom: 72px
     display: flex
     flex-flow: row wrap
     align-items: flex-start
     column-gap: 60px
     row-gap: 56px
-    padding-right: 60px
-    padding-left: 60px
+    padding: 72px 60px
     @media screen and (max-width: 1024px)
       column-gap: 32px
       row-gap: 39px
-      padding-right: 40px
-      padding-left: 40px
+      padding: 72px 40px
     @media screen and (max-width: 900px)
       row-gap: 24px
       div:empty
         display: none
     @media screen and (max-width: 600px)
-      padding-right: 0
-      padding-left: 0
+      padding: 72px 0
     &:not(:last-child)
       border-bottom: 1px solid rgba(255,255,255,0.5)
     p
@@ -88,8 +85,8 @@
       text-align: left
     h2
       text-align: left !important
-    &:not(:first-child)
-      padding-top: 72px
+    //&:not(:first-child)
+    //  padding-top: 72px
   &_col
     width: calc(50% - 30px)
     @media screen and (max-width: 900px)
