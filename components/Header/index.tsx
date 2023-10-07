@@ -1,11 +1,10 @@
 'use client'
 import Logo from '../../public/assets/Logo.svg'
-import X from '../../public/assets/x.svg'
 import styles from './Header.module.sass'
 import {GhostingLink} from "@/components/GhostingLink";
 import Link from "next/link";
 import {HeaderLink} from "@/components/HeaderLink";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
 import {IEvaHeaderFields} from "@/contentful/generated/types";
 import {CustomImage} from "@/components/CustomImage";
@@ -15,6 +14,13 @@ import Cross from '../../public/assets/Button.svg'
 import {DownloadLink} from "@/components/DownloadLink";
 import fstyles from '../FooterLinks/FooterLinks.module.sass'
 import {usePathname} from "next/navigation";
+const menu = {
+    hidden: { opacity: 0, z: 0 },
+    visible: {
+        opacity: 1,
+        z: 0
+    },
+};
 export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl, socLinks, universalLink}) => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [open, setOpen] = useState(false)
@@ -31,6 +37,7 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
         };
     }, []);
 
+
     return <>
 
         <motion.header
@@ -40,10 +47,12 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
             //@ts-ignore
             className={`${styles.header} ${['/about', '/', '/support', '/support.html'].includes(pathname) ? 'abs' : ''} ${scrollPosition > globalThis.window?.innerHeight ? "black" : ""}`}>
         <div className={styles.header_left}>
-            <Link href='/'>
-                <Logo />
+            <Link href='/' className={pathname === '/' ? 'active' : ''} scroll={false}>
+                <motion.div  whileTap={{scale: 0.95}}>
+                    <Logo />
+                </motion.div>
             </Link>
-            <X />
+            <hr/>
             <GhostingLink />
         </div>
         <nav className={styles.header_right}>
@@ -60,34 +69,45 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
             <Button buttonType="small" onClick={() => setOpen(prev => !prev)}><Menu/></Button>
         </nav>
     </motion.header>
-    <div className={`${styles.menu} ${open ? 'open': ''}`}>
-        <div className={styles.menu_inner}>
-            <Cross onClick={() => setOpen(false)} />
-            <Link href='/' onClick={() => setOpen(false)}>
-                <Logo />
-            </Link>
-            <div className={styles.menu_links}>
-                <HeaderLink text="About Us" href="/about" onClick={() => setOpen(false)}/>
-                <HeaderLink text="Brandbook" href="/brandbook" onClick={() => setOpen(false)}/>
-                {hasLoginButton ?
-                    <HeaderLink text="Log In" href={webUrl!} blank />
-                 : null
-                }
-            </div>
-            <div className={styles.menu_soc}>
-                {socLinks.map(link => (
-                    <HeaderLink  key={link.fields.title} href={link.fields.link} blank ><CustomImage {...link.fields.image}/></HeaderLink>
-                ))}
-            </div>
-            <DownloadLink href={universalLink}>Download now</DownloadLink>
-            <div className={fstyles.flinks}>
-                <div className={fstyles.flinks_links}>
-                    <Link href="/terms" onClick={() => setOpen(false)}>Terms</Link>
-                    <Link href="/pp" onClick={() => setOpen(false)}>Privacy policy</Link>
+        <AnimatePresence mode="wait">
+            {open ? <motion.menu className={`${styles.menu}`}
+                                 variants={menu}
+                                 initial="hidden"
+                                 animate="visible"
+                                 exit='hidden'
+                >
+                <div className={styles.menu_inner}>
+                    <Cross onClick={() => setOpen(false)} />
+                    <Link href='/' onClick={() => setOpen(false)} className={pathname === '/' ? 'active' : ''}>
+                        <motion.div  whileTap={{scale: 0.95}}>
+                            <Logo />
+                        </motion.div>
+                    </Link>
+                    <div className={styles.menu_links}>
+                        <HeaderLink text="About Us" href="/about" onClick={() => setOpen(false)}/>
+                        <HeaderLink text="Brandbook" href="/brandbook" onClick={() => setOpen(false)}/>
+                        {hasLoginButton ?
+                            <HeaderLink text="Log In" href={webUrl!} blank />
+                         : null
+                        }
+                    </div>
+                    <div className={styles.menu_soc}>
+                        {socLinks.map(link => (
+                            <HeaderLink  key={link.fields.title} href={link.fields.link} blank ><CustomImage {...link.fields.image}/></HeaderLink>
+                        ))}
+                    </div>
+                    <DownloadLink href={universalLink}>Download now</DownloadLink>
+                    <div className={fstyles.flinks}>
+                        <div className={fstyles.flinks_links}>
+                            <Link href="/terms" onClick={() => setOpen(false)}>Terms</Link>
+                            <Link href="/pp" onClick={() => setOpen(false)}>Privacy policy</Link>
+                            <Link href="/support" onClick={() => setOpen(false)}>Customer Support</Link>
+                        </div>
+                        <p>{copyright}</p>
+                    </div>
                 </div>
-                <p>{copyright}</p>
-            </div>
-        </div>
-    </div>
+            </motion.menu>
+            : null}
+        </AnimatePresence>
     </>
 }

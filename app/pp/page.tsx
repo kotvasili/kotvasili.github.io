@@ -8,7 +8,7 @@ import {ReactNode} from "react";
 const options = {
     renderNode: {
         [BLOCKS.TABLE]: (node: Block | Inline, children: ReactNode) => {
-            return <div className='table'><table>{children}</table></div>;
+            return <div className='table'><table><tbody>{children}</tbody></table></div>;
         },
     },
 };
