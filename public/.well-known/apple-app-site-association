@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "DVXCSPUV6J.com.ifriend.ios",
+        "paths": [
+          "NOT /force-web/*",
+          "NOT /reset-password/*",
+          "*"
+        ]
+      }
+    ]
+  }
+}

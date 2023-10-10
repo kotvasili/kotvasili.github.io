@@ -17,7 +17,7 @@ export const AvatarImage = ({fields: {file, title}, className = '', delay, singl
                 sizes={single ? "(max-width: 600px) 70vw, (max-width: 1000px) 50vw, 70vw" : "(max-width: 600px) 66vw, (max-width: 1000px) 33vw, 25vw"}
                 onLoadingComplete={img => img.classList.add(styles.avaimg_load)}
                 quality={100}
-                priority={single}
+                priority
             />
         </div>
 }

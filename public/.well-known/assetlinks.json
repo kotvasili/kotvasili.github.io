@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ifriend.app",
+      "sha256_cert_fingerprints":
+      ["90:3F:BF:BD:B4:C1:4E:72:D8:62:47:6C:BD:6B:CF:E0:DF:F7:30:54:3F:C9:35:73:18:04:E3:3C:85:9C:C6:C7",
+      "28:47:A3:D1:24:EE:D2:8E:F5:A3:2B:83:98:66:D2:93:F3:68:49:88:09:04:8A:D3:59:51:84:D4:9F:BF:B9:1B"]
+    }
+  }
+]
