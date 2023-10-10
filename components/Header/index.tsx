@@ -85,6 +85,7 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
                         </motion.div>
                     </Link>
                     <div className={styles.menu_links}>
+                        <HeaderLink text="Home" href="/" onClick={() => setOpen(false)}/>
                         <HeaderLink text="About Us" href="/about" onClick={() => setOpen(false)}/>
                         <HeaderLink text="Brandbook" href="/brandbook" onClick={() => setOpen(false)}/>
                         {hasLoginButton ?

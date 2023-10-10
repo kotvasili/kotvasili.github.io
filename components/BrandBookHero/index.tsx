@@ -18,14 +18,15 @@ type TBrandbook = {
     fileUrl?: string;
     cta: string;
     hasImage?: boolean;
+    bigTitle?: boolean;
     content?: Document;
     botImages: Asset[]
 } & PropsWithChildren
 
-export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages, fileUrl, cta, content }) => {
+export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages, fileUrl, cta, content, bigTitle = false }) => {
     return  <HeroWrapper className={`${styles.brandbook}`} >
         <div className={styles.brandbook_content}>
-            <AnimatedTitle className={typography.h1} text={title} />
+            <AnimatedTitle className={`${typography.h1} ${bigTitle ? 'extended': ''}`} text={title} />
             <AnimContent delay={0.8}> {fileUrl ?<a href={'https:' + fileUrl}>
                 <BTN>{cta}</BTN>
             </a> : content ? documentToReactComponents(content) : <BTN>{cta}</BTN> }</AnimContent>

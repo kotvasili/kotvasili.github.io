@@ -28,6 +28,9 @@
     &> *
       position: relative
       z-index: 1
+    &:global
+      &:has(.extended)
+        padding-top: 200px
     @media screen and (max-width: 600px)
       width: 100%
       max-width: 100%

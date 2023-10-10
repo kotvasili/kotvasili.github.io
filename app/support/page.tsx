@@ -17,7 +17,7 @@ export default async function SupportPage() {
     return <><BrandBookHero
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
-        hasImage={false}
+        bigTitle
         botImages={pageData.heroContent.fields.botImages!}
         fileUrl={pageData.brandbookMaterials?.fields.file.url!}
         cta={pageData.heroContent.fields.cta!}
