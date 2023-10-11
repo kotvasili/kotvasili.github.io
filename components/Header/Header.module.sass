@@ -19,6 +19,9 @@
   &:global
     &.abs
       position: absolute
+      & + main
+        overflow: visible
+        height: auto
     &.black
       background: #000
   @media screen and (max-width: 600px)
@@ -88,6 +91,7 @@
   backdrop-filter: blur(30px)
   z-index: 100
   contain: paint
+  overscroll-behavior-y: contain
   &_inner
     width: 100%
     height: 100%

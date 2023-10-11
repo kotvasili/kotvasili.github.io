@@ -18,6 +18,7 @@ const general = localFont(	{
     preload: true,
     display:"swap",
 })
+export const dynamic = 'force-static'
 export default async function RootLayout({
   children,
 }: {

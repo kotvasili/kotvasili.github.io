@@ -4,10 +4,12 @@ import {Client} from "@/contentful/utils";
 import {IEvaPageFields} from "@/contentful/generated/types";
 import {Metadata, ResolvingMetadata} from "next";
 import {BrandbookContent} from "@/components/BrandbookContent";
+import {Fragment} from "react";
+
 export default async function BrandBookPage() {
     const pageData = await getBrandBook()
 
-    return  <><BrandBookHero
+    return  <Fragment key='brand'><BrandBookHero
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
         botImages={pageData.heroContent.fields.botImages!}
@@ -17,7 +19,7 @@ export default async function BrandBookPage() {
         sections={...pageData.brandbookSections!}
         fileUrl={pageData.brandbookMaterials?.fields.file.url!}
     />
-    </>
+    </Fragment>
 }
 async function getBrandBook() {
     const result = await Client.getEntries<IEvaPageFields>({

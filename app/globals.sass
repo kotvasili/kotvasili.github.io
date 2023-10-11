@@ -1,5 +1,4 @@
 html, body
-
   color: var(--color-white)
   margin: 0
   padding: 0
@@ -10,6 +9,8 @@ html
 body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+//body:has(.abs)
+//  height: 100svh
 *,
 *:before,
 *:after
@@ -40,7 +41,7 @@ a
 
 .hero
   height: 100%
-  min-height: 100vh
+  min-height: 100svh
   padding-top: var(--header-h)
   width: 100%
   display: flex
@@ -50,6 +51,8 @@ a
     position: relative
 main
   width: 100%
+  height: auto
+  overflow: visible
   &:not(:has(#bb))
     overflow: hidden
     height: 100svh

@@ -4,7 +4,7 @@ import {Metadata, ResolvingMetadata} from "next";
 import {BrandBookHero} from "@/components/BrandBookHero";
 import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 import {BLOCKS, Inline, Block} from "@contentful/rich-text-types";
-import {ReactNode} from "react";
+import {Fragment, ReactNode} from "react";
 const options = {
     renderNode: {
         [BLOCKS.TABLE]: (node: Block | Inline, children: ReactNode) => {
@@ -14,7 +14,7 @@ const options = {
 };
 export default async function PrivacyPage() {
     const pageData = await getPrivacy()
-    return <><BrandBookHero
+    return <Fragment key='privacy'><BrandBookHero
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
         hasImage={false}
@@ -25,7 +25,7 @@ export default async function PrivacyPage() {
         <div className='content' id='bb'>
             {documentToReactComponents(pageData.richContent!, options)}
         </div>
-    </>
+    </Fragment>
 }
 async function getPrivacy() {
     const result = await Client.getEntries<IEvaPageFields>({

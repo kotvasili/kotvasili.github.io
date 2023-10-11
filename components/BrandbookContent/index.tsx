@@ -1,5 +1,5 @@
 'use client'
-import {FC, MouseEvent, useCallback, useEffect, useState} from "react";
+import {FC, Fragment, MouseEvent, useCallback, useEffect, useState} from "react";
 import {IBrandbookBlock} from "@/contentful/generated/types";
 import styles from "@/components/BrandbookContent/BB.module.sass";
 import {BBBlock} from "@/components/BrandbookContent/BBBlock";
@@ -45,7 +45,7 @@ export const BrandbookContent: FC<{sections :IBrandbookBlock[]; fileUrl: string}
         }
     }, [active])
 
-    return  <><div className={styles.bb_wrapper} id='bb'>
+    return  <Fragment key='bb-content'><div className={styles.bb_wrapper} id='bb'>
         <div className={styles.bb_aside}>
             {links?.map(link => {
                 return <a key={`#${link.hash}`} id={`${link.hash}-link`} href={`#${link.hash}`} className={active === link.hash ? 'active' : ''} onClick={handleClick(link.hash)}>{link.title}</a>
@@ -61,5 +61,5 @@ export const BrandbookContent: FC<{sections :IBrandbookBlock[]; fileUrl: string}
                 <p>All uses of the EVA AI materials are subject to the Terms and Conditions.</p>
             </div>
         </div>
-    </>
+    </Fragment>
 }
