@@ -37,8 +37,9 @@
       display: block
       padding: 1.5px 0
       user-select: none
-      &:hover
-        opacity: 1
+      @media (pointer: fine)
+        &:hover
+          opacity: 1
       &:global
         &.active
           opacity: 1
