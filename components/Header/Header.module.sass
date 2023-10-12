@@ -40,9 +40,12 @@
       align-items: center
       justify-content: center
     & > a:first-child
+      position: relative
+      svg
+        position: relative
+        z-index: 1
       &:global
         &:not(.active)
-          position: relative
           &:after
             content: ''
             position: absolute
