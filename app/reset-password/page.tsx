@@ -81,7 +81,7 @@ export default function ResetPasswordPage() {
             </div>
         </HeroWrapper>
     }
-    return <HeroWrapper className={styles.head}>
+    return <HeroWrapper className={`${styles.head} wrap`} >
         <div className="col_group">
             <h2 className={typography.h2}>Enter a new password below</h2>
             <span className="input input--minoru">
