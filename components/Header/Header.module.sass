@@ -39,25 +39,20 @@
       display: flex
       align-items: center
       justify-content: center
-      user-select: none
     & > a:first-child
-
       &:global
         &:not(.active)
-          div
-            position: relative
-            outline: none
-            will-change: transform
-            &:after
-              content: ''
-              position: absolute
-              z-index: -1
-              width: 100%
-              height: 100%
-              left: 0
-              top: 0
-              background: radial-gradient(circle, rgba(123,97,255,0.7) 0%, rgba(255,255,255,0) 100%)
-              filter: blur(15px)
+          position: relative
+          &:after
+            content: ''
+            position: absolute
+            z-index: -1
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            background: radial-gradient(circle, rgba(123,97,255,0.7) 0%, rgba(255,255,255,0) 100%)
+            filter: blur(15px)
 
 
     hr

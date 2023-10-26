@@ -6,6 +6,6 @@ export interface ButtonProps
     extends ButtonHTMLAttributes<HTMLButtonElement>{
     buttonType?: 'small' | 'medium' | 'large',
 }
-export const Button: FC<ButtonProps> = ({buttonType = 'medium', children, className, onClick}) => {
-    return <motion.button onClick={onClick} whileTap={{scale: 0.95}} className={`${styles.button} ${buttonType} ${className}`}>{children}</motion.button>
+export const Button: FC<ButtonProps> = ({buttonType = 'medium', children, className, disabled, onClick}) => {
+    return <motion.button disabled={disabled} onClick={onClick} whileTap={{scale: 0.95}} className={`${styles.button} ${buttonType} ${className}`}>{children}</motion.button>
 }

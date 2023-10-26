@@ -19,6 +19,9 @@
   flex-flow: row nowrap
   align-items: center
   justify-content: center
+  &:disabled, &[disabled]
+    opacity: 0.5
+    pointer-events: none
   &:before, &:after
     content: ''
     position: absolute
