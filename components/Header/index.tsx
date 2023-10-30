@@ -45,7 +45,7 @@ export const Header: FC<IEvaHeaderFields> = ({hasLoginButton, copyright, webUrl,
                 animate={{opacity: 1, y: 0}}
                 transition={{delay: 2.3, duration: 0.5}}
                 //@ts-ignore
-                className={`${styles.header} ${['/about', '/', '/support', '/support.html', '/reset-password', '/email-confirmation'].includes(pathname) ? 'abs' : ''} ${scrollPosition > globalThis.window?.innerHeight - 70 ? "black" : ""}`}>
+                className={`${styles.header} ${['/about', '/', '/support', '/support.html', '/reset-password', '/email-confirmation', '/terms'].includes(pathname) ? 'abs' : ''} ${scrollPosition > globalThis.window?.innerHeight - 70 ? "black" : ""}`}>
             <div className={styles.header_left}>
                 <Link href='/' className={pathname === '/' ? 'active' : ''} scroll={false}>
                     <motion.div  whileTap={{scale: 0.95}}>
