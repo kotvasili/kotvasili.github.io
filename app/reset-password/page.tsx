@@ -33,7 +33,6 @@ export default function ResetPasswordPage() {
     const [loaded, setLoaded] = useState(false);
     const [showError, setShowError] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
-    console.log(NEXT_PUBLIC_API_URL)
     useEffect(() => {
         setLoaded(true)
     }, [])

@@ -1,20 +1,12 @@
+import {BrandBookHero} from "@/components/BrandBookHero";
+import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 import {Client} from "@/contentful/utils";
 import {IEvaPageFields} from "@/contentful/generated/types";
 import {Metadata, ResolvingMetadata} from "next";
-import {BrandBookHero} from "@/components/BrandBookHero";
-import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
-import {BLOCKS, Inline, Block} from "@contentful/rich-text-types";
-import {Fragment, ReactNode} from "react";
-const options = {
-    renderNode: {
-        [BLOCKS.TABLE]: (node: Block | Inline, children: ReactNode) => {
-            return <div className='table'><table><tbody>{children}</tbody></table></div>;
-        },
-    },
-};
-export default async function PrivacyPage() {
-    const pageData = await getPrivacy()
-    return <Fragment key='privacy'><BrandBookHero
+
+export default async function TermsPageAndroid() {
+    const pageData = await getTerms()
+    return <><BrandBookHero
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
         botImages={pageData.heroContent.fields.botImages!}
@@ -22,18 +14,18 @@ export default async function PrivacyPage() {
         cta={pageData.heroContent.fields.cta!}
     />
         <div className='content' id='bb'>
-            {documentToReactComponents(pageData.richContent!, options)}
+            {documentToReactComponents(pageData.richContent!)}
         </div>
-    </Fragment>
+    </>
 }
-async function getPrivacy() {
+async function getTerms() {
     const result = await Client.getEntries<IEvaPageFields>({
         content_type: 'evaPage',
         locale: "en-US",
         include: 2,
-        limit: 10
+        limit: 15
     });
-    return result.items.find(item => item.fields.title.toLowerCase().includes('privacy'))!.fields
+    return result.items.find(item => item.fields.title.toLowerCase().includes('terms/android'))!.fields
 }
 
 export async function generateMetadata(_: any, parent: ResolvingMetadata): Promise<Metadata> {
@@ -41,9 +33,9 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
         content_type: 'evaPage',
         locale: "en-US",
         include: 2,
-        limit: 10
+        limit: 15
     });
-    const fields = result.items.find(item => item.fields.title.toLowerCase().includes('privacy'))!.fields.seo?.fields;
+    const fields = result.items.find(item => item.fields.title.toLowerCase().includes('terms/android'))!.fields.seo?.fields;
     const previousImages = (await parent).openGraph?.images || []
     return {
         metadataBase: new URL('https://evaapp.ai'),

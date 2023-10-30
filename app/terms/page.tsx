@@ -6,18 +6,14 @@ import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 
 export default async function TermsPage() {
     const pageData = await getTerms()
-    return <><BrandBookHero
+    return <BrandBookHero
         title={pageData.heroContent.fields.title}
         text={pageData.heroContent.fields.description}
-        hasImage={false}
         botImages={pageData.heroContent.fields.botImages!}
         fileUrl={pageData.brandbookMaterials?.fields.file.url!}
         cta={pageData.heroContent.fields.cta!}
+        content={pageData.heroContent.fields.richContent}
     />
-        <div className='content' id='bb'>
-            {documentToReactComponents(pageData.richContent!)}
-        </div>
-    </>
 }
 async function getTerms() {
     const result = await Client.getEntries<IEvaPageFields>({
@@ -26,7 +22,7 @@ async function getTerms() {
         include: 2,
         limit: 10
     });
-    return result.items.find(item => item.fields.title.toLowerCase().includes('terms'))!.fields
+    return result.items.find(item => item.fields.title.toLowerCase().includes('terms/main'))!.fields
 }
 
 export async function generateMetadata(_: any, parent: ResolvingMetadata): Promise<Metadata> {
@@ -36,7 +32,7 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
         include: 2,
         limit: 10
     });
-    const fields = result.items.find(item => item.fields.title.toLowerCase().includes('terms'))!.fields.seo?.fields;
+    const fields = result.items.find(item => item.fields.title.toLowerCase().includes('terms/main'))!.fields.seo?.fields;
     const previousImages = (await parent).openGraph?.images || []
     return {
         metadataBase: new URL('https://evaapp.ai'),
