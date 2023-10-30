@@ -33,11 +33,13 @@ export default function ResetPasswordPage() {
     const [loaded, setLoaded] = useState(false);
     const [showError, setShowError] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
+    console.log(NEXT_PUBLIC_API_URL)
     useEffect(() => {
         setLoaded(true)
     }, [])
     const submit = async () => {
         try {
+            console.log(NEXT_PUBLIC_API_URL, 'tete')
             await setPassword(NEXT_PUBLIC_API_URL as string, token as string, value);
             setShowSuccess(true)
         }catch {
@@ -45,8 +47,8 @@ export default function ResetPasswordPage() {
         }
 
     }
-    const onChange = (e: { target: { value: any; }; }) => {
-        setValue(value)
+    const onChange = (e: { target: { value: string; }; }) => {
+        setValue(e.target.value)
         setDisabled(!e.target.value)
     }
     if(!loaded){
