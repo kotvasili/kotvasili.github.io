@@ -8,7 +8,7 @@ import typography from "@/app/styles/typography.module.sass";
 import {useEnvContext} from "next-runtime-env";
 
 const getUser = (API_URL: string, token: string): Promise<number> => {
-    return fetch(API_URL + `/identity`, {
+    return fetch('https:/api.ifriend.ai/identity', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const getUser = (API_URL: string, token: string): Promise<number> => {
     }).then(data => data.id);
 }
 const unsubscribe = async (API_URL: string, token: string, userId: number): Promise<any> => {
-    const data = await fetch(API_URL + `/subscriptions/${userId}`, {
+    const data = await fetch(`https:/api.ifriend.ai/subscriptions/${userId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

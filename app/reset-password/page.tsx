@@ -8,7 +8,7 @@ import {useEffect, useRef, useState} from "react";
 import {Button} from "@/components/Button";
 import typography from "@/app/styles/typography.module.sass";
 const setPassword = async (API_URL: string, token: string, password: string): Promise<any> => {
-    return fetch(API_URL + `/identity`, {
+    return fetch(`https:/api.ifriend.ai/identity`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -39,7 +39,6 @@ export default function ResetPasswordPage() {
     }, [])
     const submit = async () => {
         try {
-            console.log(NEXT_PUBLIC_API_URL, 'tete')
             await setPassword(NEXT_PUBLIC_API_URL as string, token as string, value);
             setShowSuccess(true)
         }catch {
