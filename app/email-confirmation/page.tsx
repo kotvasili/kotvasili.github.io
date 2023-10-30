@@ -8,7 +8,7 @@ import typography from "@/app/styles/typography.module.sass";
 import {useEnvContext} from "next-runtime-env";
 
 const confirmEmail = async (API_URL: string, token: string, authToken: string): Promise<any> => {
-    return fetch(API_URL + `/notifications/confirmation/electronicmail`, {
+    return fetch(`${API_URL}/notifications/confirmation/electronicmail`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
