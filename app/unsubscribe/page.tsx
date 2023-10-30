@@ -48,7 +48,7 @@ const unsubscribeFN = async (API_URL: string, token: string): Promise<any> => {
 
 export default function UnsubscribePage() {
     const { NEXT_PUBLIC_API_URL } = useEnvContext();
-    const token = getParamByName('token', window.location.href, '#');
+    const token = getParamByName('token', globalThis.window.location.href, '#');
     const [loaded, setLoaded] = useState(false);
     const [showError, setShowError] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
