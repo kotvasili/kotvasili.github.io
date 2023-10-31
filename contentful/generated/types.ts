@@ -15,6 +15,12 @@ export interface IAppLinksFields {
 
   /** Universal Link */
   universalLink: string;
+
+  /** Gplay disabled */
+  gplayDisabled?: boolean | undefined;
+
+  /** App Store Disabled */
+  appStoreDisabled?: boolean | undefined;
 }
 
 export interface IAppLinks extends Entry<IAppLinksFields> {

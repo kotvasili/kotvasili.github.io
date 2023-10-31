@@ -53,6 +53,10 @@
     position: relative
     border: solid 1px transparent
     background-clip: padding-box
+    &:global
+      &.disabled
+        opacity: 0.5
+        pointer-events: none
     @media screen and (max-width: 600px)
       display: none
     &:hover
