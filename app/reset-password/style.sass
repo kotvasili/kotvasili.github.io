@@ -5,12 +5,26 @@
   max-width: 400px
   width: 100%
   vertical-align: top
+  svg
+    position: absolute
+    right: 20px
+    top: 10px
+    width: 20px
+    cursor: pointer
+    z-index: 10
+    opacity: 0.4
+    transition: opacity .2s
+    user-select: none
+    &:hover
+      opacity: 0.7
+    &.active
+      opacity: 1
 .input__field
     position: relative
     display: block
     float: right
     font-size: 18px
-    padding: 0.8em
+    padding: 0.8em 45px 0.8em 0.8em
     width: 60%
     background: transparent
     border-radius: 40px
@@ -40,7 +54,7 @@
 
 .input__field--minoru
   width: 100%
-  box-shadow: 0 0px 0px 2px transparent
+  box-shadow: 0 0 0 2px transparent
   color: #fff
   transition: box-shadow 0.3s
 

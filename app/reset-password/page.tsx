@@ -7,6 +7,7 @@ import './style.sass'
 import {useEffect, useRef, useState} from "react";
 import {Button} from "@/components/Button";
 import typography from "@/app/styles/typography.module.sass";
+import Eye from '../../public/Eye.svg'
 const setPassword = async (API_URL: string, token: string, password: string): Promise<any> => {
     return fetch(`${API_URL}/identity`, {
         method: 'PATCH',
@@ -33,9 +34,12 @@ export default function ResetPasswordPage() {
     const [loaded, setLoaded] = useState(false);
     const [showError, setShowError] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
+    const [showPass, setShowPass] = useState(false);
+
     useEffect(() => {
         setLoaded(true)
     }, [])
+
     const submit = async () => {
         try {
             await setPassword(NEXT_PUBLIC_API_URL as string, token as string, value);
@@ -85,7 +89,8 @@ export default function ResetPasswordPage() {
         <div className="col_group">
             <h2 className={typography.h2}>Enter a new password below</h2>
             <span className="input input--minoru">
-                <input className="input__field input__field--minoru" type="password" placeholder="Enter a new password" id="input-13" ref={inputRef} onChange={onChange}/>
+                <Eye onClick={() => setShowPass(prev => !prev)} className={showPass ? 'active' : ''}/>
+                <input className="input__field input__field--minoru" type={showPass ? 'text': "password"} placeholder="Enter a new password" id="input-13" ref={inputRef} onChange={onChange}/>
                 <label className="input__label input__label--minoru" htmlFor="input-13">
                     <span className="input__label-content input__label-content--minoru">New password</span>
                 </label>
