@@ -15,6 +15,6 @@ type THeadContent = {
 export const AboutHero: FC<THeadContent> = ({title, text, botImages, children}) => {
     return <HeroWrapper className={styles.head}>
         <HeroCont text={text} title={title}>{children}</HeroCont>
-        <AvatarImage className={styles.head_image} {...botImages[0]} delay={0.05} single/>
+        <AvatarImage className={styles.head_image} {...botImages[0]} delay={0.05} single priority/>
     </HeroWrapper>
 }

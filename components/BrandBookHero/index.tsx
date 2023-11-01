@@ -41,7 +41,7 @@ export const BrandBookHero: FC<TBrandbook>  = ({title,text, botImages, fileUrl, 
             </a> : content ? documentToReactComponents(content, options) : <BTN>{cta}</BTN> }</AnimContent>
         </div>
             <div className={styles.brandbook_image_wrapper}>
-                <AvatarImage className={styles.brandbook_image} {...botImages[0]} delay={0.05} single/>
+                <AvatarImage className={styles.brandbook_image} {...botImages[0]} delay={0.05} single priority/>
             </div>
 
     </HeroWrapper>

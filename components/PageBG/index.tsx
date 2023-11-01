@@ -79,6 +79,7 @@ const waveVars = {
 }
 export const PageBG = ({articles }: {articles: IArticle[]}) => {
     const pathName = usePathname();
+    const hideArticles = pathName?.includes('password')
     return <>
         <div className={styles.bg}>
             <div className={styles.bg_inner}>
@@ -107,9 +108,10 @@ export const PageBG = ({articles }: {articles: IArticle[]}) => {
 
             </div>
         </div>
+        {!hideArticles ?
         <div className={styles.bg_outer}>
             <ArticlesRow articles={articles} />
-        </div>
+        </div> : null}
     </>
 }
 
