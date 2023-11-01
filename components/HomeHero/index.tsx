@@ -10,7 +10,7 @@ export const HomeHero: FC<PropsWithChildren & {title: string; text: string; botI
     return   <HeroWrapper className={styles.home}>
         <div className={styles.home_images}>
             <AvatarImage className={styles.home_img} {...botImages[0]} delay={0.3}/>
-            <AvatarImage className={styles.home_img} {...botImages[1]} delay={1}/>
+            <AvatarImage className={styles.home_img} {...botImages[1]} delay={1} priority/>
             <AvatarImage className={styles.home_img} {...botImages[2]} delay={0.5}/>
             <AvatarImage className={styles.home_img} {...botImages[3]} delay={0.8}/>
         </div>

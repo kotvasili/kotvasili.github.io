@@ -5,6 +5,43 @@ module.exports = {
         domains: ['images.ctfassets.net'],
     },
     experimental: { optimizeCss: true },
+    async rewrites() {
+        return [
+            {
+                source: '/terms.html',
+                destination: '/terms',
+            },
+            {
+                source: '/support.html',
+                destination: '/support',
+            },
+            {
+                source: '/pp.html',
+                destination: '/pp',
+            },
+        ]
+    },
+    async headers() {
+        return [
+            {
+                source: '/(.*)',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'DENY',
+                    },
+                    {
+                        key: 'X-Content-Type-Options',
+                        value: 'nosniff',
+                    },
+                    {
+                        key: 'Referrer-Policy',
+                        value: 'origin-when-cross-origin',
+                    },
+                ],
+            },
+        ];
+    },
     webpack: (config, options) => {
         config.module.rules.push({
             test: /\.svg$/,

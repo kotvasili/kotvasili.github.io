@@ -41,7 +41,6 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
     const fields = result.items.find(item => item.fields.title.toLowerCase().includes('brandbook'))!.fields.seo?.fields;
     const previousImages = (await parent).openGraph?.images || []
     return {
-        metadataBase: new URL('https://evaapp.ai'),
         title: fields?.title,
         description: fields?.description,
         openGraph: {
@@ -54,6 +53,9 @@ export async function generateMetadata(_: any, parent: ResolvingMetadata): Promi
             title: fields?.title,
             description: fields?.description,
             images: [...previousImages]
+        },
+        alternates: {
+            canonical: `/brandbook`,
         }
     }
 }

@@ -19,6 +19,9 @@ const general = localFont(	{
     display:"swap",
 })
 export const dynamic = 'force-static'
+export const metadata = {
+    metadataBase: new URL('https://evaapp.ai'),
+}
 export default async function RootLayout({
   children,
 }: {
