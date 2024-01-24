@@ -39,7 +39,7 @@ export const useIOSKeyboardLock = () => {
 					}
 
 					if (viewportHeight - $target.height > 150) {
-						handleScrollToTop(adjustment);
+						handleScrollToTop();
 						const adjustment = `${viewportHeight - $target.height - offset}px`;
 						$page.style.bottom = adjustment;
 						html.style?.setProperty('--keyboard-height', adjustment);
