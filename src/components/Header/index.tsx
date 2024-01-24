@@ -7,7 +7,7 @@ import { usePayWallContext } from '~context/paywall';
 import { useModal } from '~hooks/useModal';
 
 import Menu from '../../../public/assets/icons/menu.svg';
-import Logo from '../../../public/assets/logo.svg';
+import Logo from '../../../public/assets/Logo.svg';
 
 type Props = {
 	botClientId?: number | string;

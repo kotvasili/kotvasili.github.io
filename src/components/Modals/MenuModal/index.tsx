@@ -15,7 +15,7 @@ import { withHover } from '~theme/snippets';
 
 import ArrowBack from '../../../../public/assets/icons/arrowBack.svg';
 import Close from '../../../../public/assets/icons/close.svg';
-import Logo from '../../../../public/assets/logo.svg';
+import Logo from '../../../../public/assets/Logo.svg';
 import { UserInfo } from '../../UserSettings/UserInfo';
 import { UserSubscriptions } from '../../UserSettings/UserSubscriptions';
 import { Modal } from '../Base';
