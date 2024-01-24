@@ -1,0 +1,1 @@
+window.__ENV = {"NEXT_PUBLIC_PUBLIC_API":"https://api.ifriend.ai","NEXT_PUBLIC_MOTO_URL":"https://taxservice.dating.com","NEXT_PUBLIC_MOTO_MERCHANT_ID":"f57388783d154780bccd121a7399c688","NEXT_PUBLIC_MOTO_ENV":"dev","NEXT_PUBLIC_APP_HOST_URL":"192.168.1.8"};

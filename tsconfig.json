@@ -14,15 +14,21 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
-      "@/*": ["./*"]
+      // ~ instead of @ for a proper grouping without headache
+      "~components/*": ["./src/components/*"],
+      "~constants/*": ["./src/constants/*"],
+      "~services/*": ["./src/services/*"],
+      "~context/*": ["./src/context/*"],
+      "~layouts/*": ["./src/layouts/*"],
+      "~models/*": ["./src/models/*"],
+      "~styles/*": ["./src/styles/*"],
+      "~theme/*": ["./src/theme/*"],
+      "~utils/*": ["./src/utils/*"],
+      "~hooks/*": ["./src/hooks/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "typeRoots": ["./node_modules/@types", "./src/"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "lint-staged.config.js"]
 }

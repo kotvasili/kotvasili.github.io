@@ -1,0 +1,261 @@
+@font-face {
+  font-family: "General Sans";
+  src: url("../fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  background: var(--page-bg);
+  color: var(--text-color);
+  font-variant-numeric: tabular-nums;
+}
+
+body {
+  position: static;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+#__next {
+  width: 100%;
+  height: 100%;
+}
+a,
+button {
+  outline: none;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+  scrollbar-width: thin;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  /* Foreground */
+  border-radius: 10px;
+  background: var(--scrollbar-foreground);
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
+}
+
+html,
+input,
+button,
+textarea,
+dialog {
+  font-family: var(--font);
+  color: var(--color-white);
+}
+
+:root {
+  --font: "General Sans";
+  --color-black: #000;
+  --color-black-1: #0b1624;
+  --color-black-2: #1a1f23;
+  --color-black-3: #0d1623;
+  --color-black-02: rgba(0, 0, 0, 0.2);
+  --color-black-05: rgba(0, 0, 0, 0.5);
+  --color-black-08: rgba(0, 0, 0, 0.8);
+  --color-white: #fff;
+  --color-white-07: rgba(255, 255, 255, 0.7);
+  --color-white-05: rgba(255, 255, 255, 0.5);
+  --color-white-03: rgba(255, 255, 255, 0.3);
+  --color-white-02: rgba(255, 255, 255, 0.2);
+  --color-white-01: rgba(255, 255, 255, 0.1);
+  --color-white-light: #efeff2;
+  --color-error: #ff3153;
+
+  --brand-pink: #e43baf;
+  --brand-blue: #007aff;
+  --brand-blue-medium: #017bff;
+  --brand-blue-light: #94a9ea;
+  --brand-common: #8667f2;
+  --brand-dark: #223956;
+
+  --bot-color-main: var(--brand-dark);
+
+  --page-bg: linear-gradient(
+      180deg,
+      var(--color-black-08) 0.71%,
+      rgb(from var(--bot-color-main) r g b / 70%) 111%
+    ),
+    var(--color-black);
+  --main-bg: linear-gradient(
+    180deg,
+    var(--color-black) 0.71%,
+    var(--color-black-1) 79.15%
+  );
+
+  --text-color: var(--color-white);
+
+  --base-gap: 16px;
+  --screen-padding: calc(var(--base-gap) * 2);
+
+  --safe-top: env(safe-area-inset-top, var(--screen-padding));
+  --safe-bottom: env(safe-area-inset-bottom, var(--screen-padding));
+  --safe-left: env(safe-area-inset-left, var(--screen-padding));
+  --safe-right: env(safe-area-inset-right, var(--screen-padding));
+  --safe: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+
+  --scrollbar-foreground: var(--color-white-03);
+  --scrollbar-background: transparent;
+
+  --promo-bg: linear-gradient(
+    299.11deg,
+    var(--brand-pink) 25.72%,
+    var(--brand-blue) 66.73%
+  );
+  --blur-bg: linear-gradient(
+    270deg,
+    var(--brand-pink) 23.44%,
+    var(--brand-blue) 91.67%
+  );
+  --light-blue-bg: linear-gradient(157.06deg, #a497f0 5.44%, #626cde 87.98%);
+
+  --shadow-white: 0 0 14px var(--color-white-light);
+  --shadow-white-active: 0px 0px 20px 6px rgba(239, 239, 242, 0.75);
+
+  --shadow-input-focus: 0px 2px 28px 2px rgba(1, 123, 255, 0.3);
+  --shadow-input-error: 0px 2px 28px 2px rgba(255, 49, 83, 0.3);
+  --shadow-black: 0px 2px 4px 0px var(--color-black-05);
+  --shadow-black-inset: var(--shadow-black),
+    -1px -2px 4px 0px rgba(0, 0, 0, 0.55) inset;
+}
+
+@media screen and (max-width: 1100px) {
+  :root {
+    --base-gap: 12px;
+  }
+}
+
+.Toastify__toast {
+  background: rgba(46, 53, 57, 0.5) !important;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03) !important;
+  backdrop-filter: blur(12.5px);
+  border-radius: 8px;
+}
+
+.Toastify__toast-icon {
+  min-width: 24px;
+}
+.Toastify__toast-icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+.Toastify__close-button svg {
+  color: var(--color-white);
+}
+.Toastify__toast-body {
+  align-items: flex-start !important;
+}
+/* chatlist toasts*/
+.Toastify__toast.round {
+  border-radius: 24px;
+  margin-bottom: 8px;
+}
+.Toastify__toast.round p {
+  font-size: 15px;
+}
+.Toastify__toast.round .Toastify__toast-body {
+  padding: 0 16px;
+}
+#messages-toast {
+  display: contents;
+}
+#messages-toast .Toastify__toast-container {
+  top: 68px !important;
+  position: absolute;
+  max-width: calc(100vw - 32px);
+  width: 400px;
+  right: 0;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  #messages-toast .Toastify__toast-container {
+    top: 94px !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  #messages-toast .Toastify__toast-container {
+    top: 78px !important;
+  }
+}
+
+.image {
+  transition: opacity 0.2s, visibility 0.2s;
+  touch-action: none;
+  pointer-events: none;
+  &.h {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* photo styles override*/
+[data-rmiz-portal] {
+  contain: paint;
+}
+[data-rmiz-modal-overlay="visible"] {
+  background: var(--color-black-08) !important;
+}
+[data-rmiz] {
+  font-size: 0;
+}
+[data-rmiz-modal-overlay="hidden"] + div img {
+  border-radius: 24px !important;
+  transition: transform 0.3s, clip-path 0.2s, border-radius 0.2s,
+    opacity 0.1s 0.2s !important;
+  --radius: 250px;
+  --center-x: 50%;
+}
+[data-rmiz-modal-img] {
+  transition: transform 0.3s, clip-path 0.2s, border-radius 0.2s !important;
+  border-radius: 0;
+  pointer-events: none;
+  --radius: 1000px;
+  --center-x: 50%;
+  clip-path: polygon(
+    calc(var(--center-x) + var(--radius)) calc(var(--center-x) + var(--radius)),
+    calc(var(--center-x) - var(--radius)) calc(var(--center-x) + var(--radius)),
+    calc(var(--center-x) - var(--radius)) calc(var(--center-x) - var(--radius)),
+    calc(var(--center-x) + var(--radius)) calc(var(--center-x) - var(--radius))
+  );
+}
+[data-rmiz] {
+  height: 160px;
+  font-size: 0;
+}
