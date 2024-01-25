@@ -16,7 +16,7 @@ export const useIOSKeyboardLock = () => {
 				isIOS
 					? window.scrollTo(0, 0)
 					: pageRef?.current?.scrollIntoView({ block: 'end' });
-			}, 0); //chrome ios hack
+			}, 10); //chrome ios hack
 		};
 
 		// Check for visual viewport to handle resizing
@@ -57,7 +57,7 @@ export const useIOSKeyboardLock = () => {
 			);
 		}
 
-		// document.addEventListener('touchend', handleScrollToTop);
+		document.addEventListener('touchend', handleScrollToTop);
 		return () => {
 			html.style?.setProperty('--keyboard-height', '0px');
 			document.removeEventListener('touchend', handleScrollToTop);
