@@ -1,7 +1,7 @@
 import { debounce } from 'debounce';
 import { useEffect, useRef } from 'react';
+import { isIOS } from 'react-device-detect';
 
-// const isIOS = /iPad|iPhone|iPod/.test(globalThis.navigator?.userAgent);
 export const useIOSKeyboardLock = () => {
 	const pageRef = useRef<HTMLDivElement>(null);
 	const htmlRef = useRef<HTMLHtmlElement | null>(
@@ -13,7 +13,9 @@ export const useIOSKeyboardLock = () => {
 		if (!pageRef.current || !html) return;
 		const handleScrollToTop = () => {
 			setTimeout(() => {
-				pageRef?.current?.scrollIntoView({ block: 'end' });
+				isIOS
+					? window.scrollTo(0, 0)
+					: pageRef?.current?.scrollIntoView({ block: 'end' });
 			}, 0); //chrome ios hack
 		};
 
@@ -47,7 +49,6 @@ export const useIOSKeyboardLock = () => {
 						viewportHeight === $target.height ||
 						viewportHeight - $target.height <= 150
 					) {
-						// alert('else if');
 						offset = viewportHeight - $target.height;
 						$page.style.bottom = '0px';
 						html.style?.setProperty('--keyboard-height', '0px');

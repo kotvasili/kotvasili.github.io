@@ -3,9 +3,13 @@ export const getHost = (): string => {
 };
 
 export const replacePrefixInHost = (host: string, isLocal: boolean): string => {
-	return isLocal ? host : host.split('//')[1];
+	return isLocal ? host : host.replace('app', '').split('//')[1];
 };
 
 export const isHostLocal = (host: string): boolean => {
-	return host.includes('localhost') || host.includes('192.168');
+	return (
+		host.includes('localhost') ||
+		host.includes('192.168') ||
+		host.includes('10.')
+	);
 };
